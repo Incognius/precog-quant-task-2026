@@ -1,0 +1,99 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Data Files (IMPORTANT - Don't commit large datasets)
+data/raw/*.csv
+data/raw/*.parquet
+data/raw/*.h5
+data/processed/*.csv
+data/processed/*.parquet
+data/processed/*.h5
+*.pkl
+*.pickle
+
+# Model Files (Large files)
+outputs/models/*.pkl
+outputs/models/*.h5
+outputs/models/*.pt
+outputs/models/*.pth
+outputs/models/*.joblib
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Output Files (optional - commit if you want to track results)
+# outputs/figures/*.png
+# outputs/figures/*.jpg
+# outputs/figures/*.pdf
+# outputs/results/*.csv
+# outputs/results/*.json
+
+# Environment Variables
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# Temporary Files
+*.tmp
+temp/
+tmp/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
