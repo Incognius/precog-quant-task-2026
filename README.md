@@ -1,6 +1,6 @@
 ﻿# Precog Quant Task 2026 - Algorithmic Trading Pipeline
 
-**Author:** Sai Pranay Ponna  
+**Author:** Ponnambalam V
 **Task:** Quantitative Trading Strategy Development  
 **Institution:** Precog Research Group, IIIT Hyderabad
 
