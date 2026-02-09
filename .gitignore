@@ -90,6 +90,21 @@ reports/*.tex
 # GitHub instructions (Claude/AI instructions)
 .github/instructions/
 
+# Forward bias experiments (not for submission)
+forward-bias/
+
+# Debug/utility scripts (not for submission)
+debug_pdf.py
+fix_notebook.py
+fix_viz.py
+temp_debug.py
+read_pdfs.py
+pdf_content.txt
+pdf_text_utf8.txt
+params.md
+save_stage3_results.py
+GIT_SETUP_INSTRUCTIONS.md
+
 # Temporary Files
 *.tmp
 temp/
