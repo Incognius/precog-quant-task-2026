@@ -1,0 +1,63 @@
+{
+  "model": {
+    "type": "LightGBM",
+    "n_estimators": 20,
+    "max_depth": 4,
+    "num_leaves": 6,
+    "reg_alpha": 2.0,
+    "reg_lambda": 2.0,
+    "learning_rate": 0.05
+  },
+  "features": [
+    "mom_5",
+    "mom_21",
+    "mom_63",
+    "mom_126",
+    "mom_252",
+    "rev_3",
+    "rev_5",
+    "rev_10",
+    "rev_21",
+    "vol_5",
+    "vol_21",
+    "vol_63",
+    "dist_ma_21",
+    "dist_ma_50",
+    "dist_ma_200",
+    "mom_21_rank",
+    "vol_21_rank",
+    "rsi"
+  ],
+  "trading_params": {
+    "long_bias": 5.5,
+    "max_position": 0.05,
+    "transaction_cost_bps": 10,
+    "rebalance_days": 21
+  },
+  "results": {
+    "is": {
+      "net_sharpe": 1.0167513619026471,
+      "gross_sharpe": 1.0760669487133458,
+      "max_drawdown": -0.3149615444971431,
+      "period": "2017-01-24 00:00:00 to 2023-12-29 00:00:00",
+      "days": 1746
+    },
+    "oos": {
+      "net_sharpe": 1.5059067876701466,
+      "gross_sharpe": 1.6007854641261303,
+      "max_drawdown": -0.14764701766275523,
+      "period": "2024-01-02 00:00:00 to 2026-01-09 00:00:00",
+      "days": 508
+    },
+    "benchmark": {
+      "is_sharpe": 0.9873117237973892,
+      "oos_sharpe": 1.461208618390119
+    }
+  },
+  "methodology": {
+    "description": "Proper IS optimization -> OOS validation. No OOS tuning.",
+    "training": "Full IS period",
+    "validation": "Same as training (in-sample evaluation)",
+    "testing": "True OOS (2024-2026)"
+  }
+}

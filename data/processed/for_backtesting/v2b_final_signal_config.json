@@ -1,0 +1,38 @@
+{
+  "signal_processing": {
+    "method": "regime_adaptive_ema",
+    "halflifes": {
+      "low_vol": 3,
+      "normal": 10,
+      "high_vol": 30
+    },
+    "description": "EMA smoothing with regime-dependent half-life"
+  },
+  "rebalancing": {
+    "frequency": "daily",
+    "reason": "Daily outperforms weekly at all cost levels"
+  },
+  "position_sizing": {
+    "method": "signal_weighted",
+    "long_threshold_pct": 80,
+    "short_threshold_pct": 20
+  },
+  "expected_metrics": {
+    "mean_ic": 0.010877967569019204,
+    "information_ratio": 0.06628112574136415,
+    "ls_sharpe_gross": 1.377467521074828,
+    "annual_turnover": 29.218892714614274,
+    "transaction_cost_drag_10bps": 0.029218892714614274,
+    "net_sharpe_10bps": 1.1948494416084887
+  },
+  "regime_specific_ic": {
+    "low_vol": 0.0171,
+    "normal": 0.0089,
+    "high_vol": 0.0058
+  },
+  "diagnostics": {
+    "natural_signal_halflife_days": 3.4,
+    "peak_ic_lag_days": 10,
+    "signal_leads_or_lags_regime": "lags by 8 days"
+  }
+}

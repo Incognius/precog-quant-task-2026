@@ -1,0 +1,42 @@
+{
+  "strategy_name": "Reliability-Weighted Ensemble Classification",
+  "model": {
+    "type": "Ensemble (65% LGBM + 35% MLP)",
+    "features": [
+      "mom_5d_zscore",
+      "mom_10d_zscore",
+      "mom_21d_zscore",
+      "mom_acc_21d_zscore",
+      "mom_63d_zscore",
+      "mom_acc_63d_zscore",
+      "mom_126d_zscore",
+      "mom_acc_126d_zscore",
+      "mom_252d_zscore",
+      "mom_acc_252d_zscore",
+      "vol_5d_zscore"
+    ],
+    "window_days": 504,
+    "retrain_frequency": 21,
+    "classification_threshold": 0.003
+  },
+  "portfolio": {
+    "top_n": 3,
+    "rebalance_frequency": 5,
+    "transaction_costs_bps": 10
+  },
+  "performance": {
+    "is_period": "2017-09-07 to 2023-12-31",
+    "oos_period": "2024-01-01 to 2026-01-16",
+    "is_sharpe": 0.78,
+    "oos_sharpe": 1.22,
+    "oos_annual_return_pct": 39.5,
+    "oos_max_drawdown_pct": -26.8
+  },
+  "validation": {
+    "leakage_check": "PASSED - No forward bias in base strategy",
+    "random_benchmark_sharpe": 0.21,
+    "strategy_alpha": 1.01,
+    "note": "SL/TP was found to have look-ahead bias and is NOT included"
+  },
+  "timestamp": "2026-02-09T15:29:13.201469"
+}

@@ -1,0 +1,53 @@
+{
+  "best_strategy": "Monthly_20_20",
+  "params": {
+    "name": "Monthly_20_20",
+    "rebalance": 21,
+    "top_pct": 0.2,
+    "bottom_pct": 0.2
+  },
+  "is_metrics": {
+    "total_return": 0.06633117381120868,
+    "ann_return": 0.014412720938898671,
+    "ann_vol": 0.05101584724794812,
+    "sharpe": 0.2825145849406019,
+    "max_dd": -0.06283203593512188,
+    "win_rate": 0.5163572060123784,
+    "n_days": 1131,
+    "total_turnover": 1662.0,
+    "ann_turnover": 370.3129973474801
+  },
+  "oos_metrics": {
+    "total_return": 0.12977947665622414,
+    "ann_return": 0.061898060165651136,
+    "ann_vol": 0.054368919977483096,
+    "sharpe": 1.1384824285168436,
+    "max_dd": -0.03318259934415191,
+    "win_rate": 0.51953125,
+    "n_days": 512,
+    "total_turnover": 742.0,
+    "ann_turnover": 365.203125
+  },
+  "full_metrics": {
+    "total_return": -0.017051079572969252,
+    "ann_return": -0.0026343371917443292,
+    "ann_vol": 0.05133351691536622,
+    "sharpe": -0.05131807335460308,
+    "max_dd": -0.0883366050730795,
+    "win_rate": 0.5088253195374315,
+    "n_days": 1643,
+    "total_turnover": 2416.0,
+    "ann_turnover": 370.5611685940353
+  },
+  "benchmark_oos": {
+    "total_return": 0.4550668782038543,
+    "ann_return": 0.20273224477415264,
+    "ann_vol": 0.1334256371701165,
+    "sharpe": 1.5194399586319893,
+    "max_dd": -0.15048314712667765,
+    "win_rate": 0.5546875,
+    "n_days": 512,
+    "total_turnover": "0",
+    "ann_turnover": 0.0
+  }
+}

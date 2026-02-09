@@ -1,0 +1,45 @@
+{
+  "model_name": "V2b_RegimeSpecific",
+  "model_type": "Ridge",
+  "alpha": 1000,
+  "retrain_frequency_days": 63,
+  "decay_halflife_days": 126,
+  "embargo_days": 5,
+  "n_features": 45,
+  "regime_specific": true,
+  "training_dates": {
+    "start": "2018-05-07 00:00:00",
+    "end": "2023-12-21 00:00:00"
+  },
+  "metrics": {
+    "mean_ic": 0.04335435411884538,
+    "ic_std": 0.07098531057197656,
+    "information_ratio": 0.6107510662348321,
+    "hit_rate": 0.6956521739130435,
+    "n_folds": 23,
+    "t_stat": 2.929,
+    "p_value": 0.0078
+  },
+  "regime_ic": {
+    "Low Vol": 0.12116234942674288,
+    "Med Vol": 0.013342862629694138,
+    "High Vol": -0.01705739572256277
+  },
+  "diagnostics": {
+    "yearly_ic_mean": 0.03996180141631562,
+    "yearly_ic_trend": -0.003431762898411471,
+    "max_ic_drawdown": -9.134043288846161,
+    "market_beta": 0.17320960635265203,
+    "ls_sharpe_annualized": 1.03
+  },
+  "statistical_tests": {
+    "t_test_passed": true,
+    "wilcoxon_passed": true,
+    "bootstrap_ci_passed": true,
+    "permutation_passed": true,
+    "ir_threshold_passed": true,
+    "hit_rate_passed": true,
+    "all_tests_passed": 6,
+    "total_tests": 6
+  }
+}

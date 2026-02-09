@@ -1,0 +1,68 @@
+{
+  "primary_target": "volnorm_return",
+  "horizon": 5,
+  "common_dates": 1998,
+  "common_assets": 100,
+  "target_configs": {
+    "raw_return": {
+      "description": "Raw 5-day forward cumulative return",
+      "type": "regression",
+      "pros": [
+        "Simple",
+        "Interpretable"
+      ],
+      "cons": [
+        "Volatility confounds signal",
+        "Tail chasing",
+        "Cross-asset incomparability"
+      ]
+    },
+    "volnorm_return": {
+      "description": "Volatility-normalized 5-day return (y = \u03a3r / \u03c3)",
+      "type": "regression",
+      "pros": [
+        "Removes vol confounder",
+        "Better OOS Sharpe",
+        "Cross-asset comparable"
+      ],
+      "cons": [
+        "Slightly lower IS Sharpe"
+      ]
+    },
+    "rank_target": {
+      "description": "Cross-sectional rank of 5-day return",
+      "type": "regression",
+      "pros": [
+        "Regime robust",
+        "Matches actual portfolio construction",
+        "Very stable"
+      ],
+      "cons": [
+        "Loses magnitude info"
+      ]
+    },
+    "sign_binary": {
+      "description": "Binary classification (up/down)",
+      "type": "classification",
+      "pros": [
+        "Easier problem",
+        "Less overfitting",
+        "Works when regression fails"
+      ],
+      "cons": [
+        "Loses magnitude info"
+      ]
+    },
+    "sign_ternary": {
+      "description": "Ternary classification (up/flat/down)",
+      "type": "classification",
+      "pros": [
+        "Models indecision",
+        "Can filter low-conviction"
+      ],
+      "cons": [
+        "Harder to tune threshold"
+      ]
+    }
+  }
+}

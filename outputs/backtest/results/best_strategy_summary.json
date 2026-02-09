@@ -1,0 +1,18 @@
+{
+  "best_strategy": "Long_Only_Weekly",
+  "overall_sharpe": 0.9483,
+  "ann_return": 0.1654,
+  "max_dd": -0.2888,
+  "turnover": 12.3808,
+  "worst_drawdown_date": "2020-03-20 00:00:00",
+  "worst_drawdown_pct": -0.2887715669380867,
+  "regime_sharpe": {
+    "low_vol": 2.3483712498375082,
+    "normal": 0.6641376753188252,
+    "high_vol": 0.07610480256394186
+  },
+  "rolling_sharpe_stability": {
+    "mean": 0.9853709082675707,
+    "pct_positive": 93.65895458440446
+  }
+}

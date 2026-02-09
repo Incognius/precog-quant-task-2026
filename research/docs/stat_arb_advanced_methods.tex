@@ -1,0 +1,738 @@
+% ============================================================================
+% STATISTICAL ARBITRAGE: ADVANCED METHODS RESEARCH
+% ============================================================================
+% A comprehensive literature review and methodology guide for statistical
+% arbitrage strategies given unstable cointegration relationships.
+%
+% Context: 100 anonymized stocks, 2016-2026 OHLCV data
+% Current findings: 700+ cointegrated pairs, only 45% stable
+% Transaction costs: 10 bps per trade
+% ============================================================================
+
+\section{Statistical Arbitrage: Advanced Methods Research}
+\label{sec:stat_arb_advanced}
+
+\subsection{Executive Summary}
+
+Given our diagnostic findings---700+ cointegrated pairs with only 45\% temporal stability and lead-lag relationships concentrated at lag 0---classic pairs trading will fail. This research document surveys advanced statistical arbitrage methods designed to address these challenges.
+
+\begin{lessonbox}
+\textbf{Key Findings from This Research:}
+\begin{enumerate}
+    \item Classic Engle-Granger cointegration is \textbf{fundamentally flawed} for trading due to static hedge ratios
+    \item \textbf{Kalman Filter hedge ratios} provide the most promising path forward
+    \item \textbf{Fractional cointegration} and \textbf{regime-switching models} explain our instability
+    \item \textbf{PCA-based arbitrage} (Principal Portfolios) may outperform pairwise approaches
+    \item Transaction cost mitigation requires \textbf{threshold-based execution} and \textbf{position smoothing}
+\end{enumerate}
+\end{lessonbox}
+
+% ============================================================================
+\subsection{Part 1: Why Classic Pairs Trading Fails}
+% ============================================================================
+
+\subsubsection{The Engle-Granger Framework: Assumptions and Violations}
+
+The Engle-Granger (1987) two-step cointegration test assumes:
+
+\begin{mathbox}
+\textbf{Engle-Granger Cointegration:}
+
+For two I(1) series $Y_t$ and $X_t$:
+\begin{equation}
+    Y_t = \alpha + \beta X_t + \epsilon_t
+\end{equation}
+
+Cointegration holds if $\epsilon_t \sim I(0)$ (stationary). The test:
+\begin{enumerate}
+    \item Estimate $\hat{\beta}$ via OLS
+    \item Test $\epsilon_t = Y_t - \hat{\beta}X_t$ for stationarity (ADF test)
+\end{enumerate}
+\end{mathbox}
+
+\textbf{Why this fails for trading:}
+
+\begin{itemize}
+    \item \textbf{Static hedge ratio}: $\hat{\beta}$ is estimated once over the full sample. Our rolling tests show relationships break down 55\% of the time.
+    
+    \item \textbf{Parameter instability}: Gregory and Hansen (1996) show cointegration parameters experience structural breaks. Financial time series are \textbf{non-ergodic}---past distributions don't predict future distributions.
+    
+    \item \textbf{Spurious regression risk}: Granger and Newbold (1974) demonstrate that regressing two independent random walks yields spuriously significant $\hat{\beta}$.
+    
+    \item \textbf{Speed of mean reversion}: Even if cointegrated, the half-life of mean reversion may exceed our holding period.
+\end{itemize}
+
+\textbf{Literature:}
+\begin{itemize}
+    \item Engle, R. F., \& Granger, C. W. J. (1987). ``Co-integration and Error Correction: Representation, Estimation, and Testing.'' \textit{Econometrica}, 55(2), 251-276.
+    \item Gregory, A. W., \& Hansen, B. E. (1996). ``Residual-Based Tests for Cointegration in Models with Regime Shifts.'' \textit{Journal of Econometrics}, 70(1), 99-126.
+\end{itemize}
+
+% ============================================================================
+\subsubsection{Dynamic Hedge Ratios via Kalman Filter}
+% ============================================================================
+
+The Kalman Filter provides time-varying hedge ratio estimation, directly addressing our instability problem.
+
+\begin{mathbox}
+\textbf{State-Space Formulation for Dynamic Hedging:}
+
+\textbf{Observation equation:}
+\begin{equation}
+    y_t = \beta_t x_t + \epsilon_t, \quad \epsilon_t \sim N(0, R)
+\end{equation}
+
+\textbf{State transition equation:}
+\begin{equation}
+    \beta_t = \beta_{t-1} + \eta_t, \quad \eta_t \sim N(0, Q)
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $y_t$ = log price of asset Y
+    \item $x_t$ = log price of asset X
+    \item $\beta_t$ = time-varying hedge ratio
+    \item $Q$ = state covariance (controls adaptation speed)
+    \item $R$ = observation noise variance
+\end{itemize}
+\end{mathbox}
+
+\textbf{Kalman Filter Update Equations:}
+
+\begin{mathbox}
+\textbf{Prediction step:}
+\begin{align}
+    \hat{\beta}_{t|t-1} &= \hat{\beta}_{t-1|t-1} \\
+    P_{t|t-1} &= P_{t-1|t-1} + Q
+\end{align}
+
+\textbf{Update step:}
+\begin{align}
+    K_t &= \frac{P_{t|t-1} x_t^2}{P_{t|t-1} x_t^2 + R} \quad \text{(Kalman gain)} \\
+    \hat{\beta}_{t|t} &= \hat{\beta}_{t|t-1} + K_t(y_t - \hat{\beta}_{t|t-1} x_t) \\
+    P_{t|t} &= (1 - K_t x_t) P_{t|t-1}
+\end{align}
+
+The \textbf{spread} is then:
+\begin{equation}
+    z_t = y_t - \hat{\beta}_{t|t} x_t
+\end{equation}
+\end{mathbox}
+
+\textbf{Tuning considerations:}
+\begin{itemize}
+    \item Small $Q$: Slow adaptation, more stable but may miss regime changes
+    \item Large $Q$: Fast adaptation, more responsive but noisier
+    \item Typical initialization: $Q/R \in [10^{-5}, 10^{-3}]$
+\end{itemize}
+
+\textbf{Advantages over static OLS:}
+\begin{enumerate}
+    \item Adapts to structural breaks automatically
+    \item Provides uncertainty estimates ($P_{t|t}$) for position sizing
+    \item Can be extended to multivariate settings (multiple assets)
+\end{enumerate}
+
+\textbf{Literature:}
+\begin{itemize}
+    \item Elliott, G., \& Müller, U. K. (2006). ``Efficient Tests for General Persistent Time Variation in Regression Coefficients.'' \textit{Review of Economic Studies}, 73(4), 907-940.
+    \item Montana, G., et al. (2009). ``Flexible Least Squares for Temporal Data Mining and Statistical Arbitrage.'' \textit{Expert Systems with Applications}, 36, 2819-2830.
+\end{itemize}
+
+% ============================================================================
+\subsubsection{Fractional Cointegration}
+% ============================================================================
+
+Our 45\% stability finding may indicate \textbf{fractional cointegration}---a weaker form where the spread is mean-reverting but has long memory.
+
+\begin{mathbox}
+\textbf{Fractional Integration:}
+
+A process $X_t$ is $I(d)$ where $d \in (0, 1)$:
+\begin{equation}
+    (1-L)^d X_t = \epsilon_t
+\end{equation}
+
+where $(1-L)^d = \sum_{k=0}^{\infty} \binom{d}{k} (-L)^k$ is the fractional difference operator.
+
+\textbf{Fractional Cointegration:}
+Two $I(1)$ series are fractionally cointegrated if their linear combination is $I(d)$ with $0 < d < 1$.
+\end{mathbox}
+
+\textbf{Implications for trading:}
+\begin{itemize}
+    \item Mean reversion exists but is \textbf{slower} than standard cointegration
+    \item Standard ADF tests have \textbf{low power} against fractional alternatives
+    \item The spread can wander far from the mean before reverting
+\end{itemize}
+
+\textbf{Testing for fractional cointegration:}
+\begin{enumerate}
+    \item \textbf{GPH estimator} (Geweke \& Porter-Hudak, 1983): Log-periodogram regression
+    \item \textbf{Local Whittle estimator}: More efficient, semi-parametric
+    \item \textbf{KPSS variant}: Phillips \& Shimotsu (2004)
+\end{enumerate}
+
+\begin{mathbox}
+\textbf{GPH Estimator:}
+
+Regress log periodogram on log frequency:
+\begin{equation}
+    \log I(\omega_j) = a - d \cdot \log|2\sin(\omega_j/2)| + u_j
+\end{equation}
+
+where $\omega_j = 2\pi j/T$ for $j = 1, \ldots, m$ and $m = T^{0.5}$ typically.
+\end{mathbox}
+
+\textbf{Literature:}
+\begin{itemize}
+    \item Baillie, R. T. (1996). ``Long Memory Processes and Fractional Integration in Econometrics.'' \textit{Journal of Econometrics}, 73(1), 5-59.
+    \item Cheung, Y. W., \& Lai, K. S. (1993). ``A Fractional Cointegration Analysis of Purchasing Power Parity.'' \textit{Journal of Business \& Economic Statistics}, 11(1), 103-112.
+\end{itemize}
+
+% ============================================================================
+\subsubsection{Error Correction Models (ECM)}
+% ============================================================================
+
+The ECM framework provides a theoretically grounded approach to trading cointegrated pairs.
+
+\begin{mathbox}
+\textbf{Vector Error Correction Model (VECM):}
+
+For cointegrated series $Y_t$ and $X_t$:
+\begin{align}
+    \Delta Y_t &= \alpha_Y (Y_{t-1} - \beta X_{t-1}) + \sum_{i=1}^{p} \gamma_i \Delta Y_{t-i} + \sum_{i=1}^{p} \delta_i \Delta X_{t-i} + \epsilon_{Y,t} \\
+    \Delta X_t &= \alpha_X (Y_{t-1} - \beta X_{t-1}) + \sum_{i=1}^{p} \phi_i \Delta Y_{t-i} + \sum_{i=1}^{p} \psi_i \Delta X_{t-i} + \epsilon_{X,t}
+\end{align}
+
+where:
+\begin{itemize}
+    \item $\alpha_Y, \alpha_X$ = speed of adjustment coefficients
+    \item $(Y_{t-1} - \beta X_{t-1})$ = error correction term (the spread)
+    \item $\gamma_i, \delta_i, \phi_i, \psi_i$ = short-run dynamics
+\end{itemize}
+\end{mathbox}
+
+\textbf{Trading interpretation:}
+\begin{itemize}
+    \item If $\alpha_Y < 0$: $Y$ adjusts back when spread is positive (mean-reverting in Y)
+    \item If $|\alpha_Y| > |\alpha_X|$: $Y$ is the ``follower'', $X$ is the ``leader''
+    \item Predict $\Delta Y_t$ and $\Delta X_t$ for directional bets
+\end{itemize}
+
+\textbf{Half-life of mean reversion:}
+\begin{equation}
+    \tau_{1/2} = \frac{\ln(2)}{-\ln(1 + \alpha)}
+\end{equation}
+
+where $\alpha$ is the combined adjustment speed. Our 10 bps transaction costs require $\tau_{1/2} < 20$ days for profitability.
+
+% ============================================================================
+\subsection{Part 2: Network-Based and Clustering Approaches}
+% ============================================================================
+
+\subsubsection{Minimum Spanning Tree (MST) for Asset Structur}
+
+The MST reduces the correlation matrix to a tree structure, revealing market topology.
+
+\begin{mathbox}
+\textbf{MST Construction:}
+
+\textbf{Step 1:} Convert correlation to distance:
+\begin{equation}
+    d_{ij} = \sqrt{2(1 - \rho_{ij})}
+\end{equation}
+This is the \textit{ultrametric distance} satisfying the triangle inequality.
+
+\textbf{Step 2:} Apply Prim's or Kruskal's algorithm to find the minimum spanning tree.
+
+\textbf{Properties:}
+\begin{itemize}
+    \item MST has $N-1$ edges for $N$ assets
+    \item Preserves hierarchical structure
+    \item Central nodes are ``systemically important''
+\end{itemize}
+\end{mathbox}
+
+\textbf{Trading applications:}
+\begin{enumerate}
+    \item \textbf{Sector identification}: Clusters in MST correspond to sectors
+    \item \textbf{Contagion risk}: Central nodes transmit shocks
+    \item \textbf{Pairs selection}: Trade edges of the MST (natural pairs)
+    \item \textbf{Portfolio construction}: MST-based diversification
+\end{enumerate}
+
+\textbf{Literature:}
+\begin{itemize}
+    \item Mantegna, R. N. (1999). ``Hierarchical Structure in Financial Markets.'' \textit{European Physical Journal B}, 11(1), 193-197.
+    \item Bonanno, G., et al. (2003). ``Topology of Correlation-Based Minimal Spanning Trees in Real and Model Markets.'' \textit{Physical Review E}, 68(4), 046130.
+\end{itemize}
+
+% ============================================================================
+\subsubsection{Principal Portfolios and PCA-Based Arbitrage}
+% ============================================================================
+
+PCA decomposes returns into orthogonal factors, enabling factor-neutral arbitrage.
+
+\begin{mathbox}
+\textbf{Principal Component Analysis:}
+
+Decompose the return covariance matrix:
+\begin{equation}
+    \Sigma = V \Lambda V'
+\end{equation}
+
+where $V = [v_1, \ldots, v_N]$ are eigenvectors and $\Lambda = \text{diag}(\lambda_1, \ldots, \lambda_N)$ are eigenvalues.
+
+\textbf{Principal portfolios:}
+\begin{equation}
+    F_k = v_k' r_t
+\end{equation}
+
+Typically, $k \leq 5$ factors explain 60-80\% of variance.
+\end{mathbox}
+
+\textbf{PCA-based arbitrage strategies:}
+
+\begin{mathbox}
+\textbf{1. Statistical Factor Arbitrage:}
+
+Regress each asset on the first $K$ principal components:
+\begin{equation}
+    r_{i,t} = \alpha_i + \sum_{k=1}^{K} \beta_{i,k} F_{k,t} + \epsilon_{i,t}
+\end{equation}
+
+\textbf{Trading signal:} Cumulative residuals $e_{i,t} = \sum_{s=1}^{t} \epsilon_{i,s}$
+
+\textbf{Strategy:}
+\begin{itemize}
+    \item Long assets with most negative cumulative residuals
+    \item Short assets with most positive cumulative residuals
+    \item Positions are factor-neutral by construction
+\end{itemize}
+\end{mathbox}
+
+\begin{mathbox}
+\textbf{2. Eigenportfolio Mean Reversion:}
+
+Higher-order principal portfolios (small $\lambda_k$) are less persistent:
+\begin{equation}
+    F_k = v_k' r_t
+\end{equation}
+
+For $k > K$, $F_k$ represents ``noise'' that mean-reverts.
+
+\textbf{Strategy:} Trade mean reversion in higher-order PCs.
+\end{mathbox}
+
+\textbf{Advantages:}
+\begin{itemize}
+    \item Automatically hedges systematic risk
+    \item Reduces dimensionality from $N$ assets to $K$ factors
+    \item More stable than pairwise relationships
+\end{itemize}
+
+\textbf{Challenges:}
+\begin{itemize}
+    \item Principal components are not stationary
+    \item Rolling PCA can cause sign flips
+    \item Hard to interpret economically
+\end{itemize}
+
+\textbf{Literature:}
+\begin{itemize}
+    \item Avellaneda, M., \& Lee, J. H. (2010). ``Statistical Arbitrage in the U.S. Equities Market.'' \textit{Quantitative Finance}, 10(7), 761-782.
+    \item Connor, G., \& Korajczyk, R. A. (1988). ``Risk and Return in an Equilibrium APT.'' \textit{Journal of Financial Economics}, 21(2), 255-289.
+\end{itemize}
+
+% ============================================================================
+\subsubsection{Correlation Clustering for Portfolio Construction}
+% ============================================================================
+
+\begin{mathbox}
+\textbf{Hierarchical Risk Parity (HRP):}
+
+A clustering-based portfolio allocation method:
+
+\textbf{Step 1:} Hierarchical clustering on correlation distance
+\begin{equation}
+    d_{ij} = \sqrt{\frac{1}{2}(1 - \rho_{ij})}
+\end{equation}
+
+\textbf{Step 2:} Quasi-diagonalize the covariance matrix by reordering assets according to cluster structure
+
+\textbf{Step 3:} Recursive bisection allocation:
+\begin{equation}
+    w_i \propto \frac{1}{\text{Var}(\text{cluster containing } i)}
+\end{equation}
+\end{mathbox}
+
+\textbf{Advantages over mean-variance optimization:}
+\begin{itemize}
+    \item Does not require covariance matrix inversion (ill-conditioned)
+    \item More stable out-of-sample
+    \item Respects cluster structure
+\end{itemize}
+
+\textbf{Literature:}
+\begin{itemize}
+    \item López de Prado, M. (2016). ``Building Diversified Portfolios that Outperform Out-of-Sample.'' \textit{Journal of Portfolio Management}, 42(4), 59-69.
+\end{itemize}
+
+% ============================================================================
+\subsection{Part 3: Lead-Lag Relationships}
+% ============================================================================
+
+\subsubsection{Why We Found No Lead-Lag at Daily Frequency}
+
+Our analysis showed all top pairs have maximum cross-correlation at lag 0. This is consistent with market efficiency at daily frequency.
+
+\textbf{Explanations:}
+\begin{enumerate}
+    \item \textbf{Information incorporation}: News is priced within minutes
+    \item \textbf{Arbitrageurs}: Lead-lag relationships are arbitraged away
+    \item \textbf{Wrong frequency}: Lead-lag may exist at intraday level
+\end{enumerate}
+
+\subsubsection{Cross-Correlation Analysis}
+
+\begin{mathbox}
+\textbf{Cross-Correlation Function:}
+\begin{equation}
+    \rho_{XY}(\tau) = \frac{\text{Cov}(X_t, Y_{t+\tau})}{\sigma_X \sigma_Y}
+\end{equation}
+
+\textbf{Interpretation:}
+\begin{itemize}
+    \item $\rho_{XY}(\tau) > 0$ for $\tau > 0$: $X$ leads $Y$
+    \item Peak at $\tau = 0$: Synchronous movement
+    \item Asymmetry: $\rho_{XY}(\tau) \neq \rho_{XY}(-\tau)$ indicates directional lead-lag
+\end{itemize}
+\end{mathbox}
+
+\subsubsection{Granger Causality}
+
+A more rigorous test for predictive relationships.
+
+\begin{mathbox}
+\textbf{Granger Causality Test:}
+
+$X$ Granger-causes $Y$ if:
+\begin{equation}
+    E[Y_t | Y_{t-1}, \ldots, Y_{t-p}, X_{t-1}, \ldots, X_{t-p}] \neq E[Y_t | Y_{t-1}, \ldots, Y_{t-p}]
+\end{equation}
+
+\textbf{Implementation:} Compare two VAR models:
+\begin{align}
+    \text{Restricted:} \quad Y_t &= \sum_{i=1}^{p} \alpha_i Y_{t-i} + \epsilon_t \\
+    \text{Unrestricted:} \quad Y_t &= \sum_{i=1}^{p} \alpha_i Y_{t-i} + \sum_{i=1}^{p} \beta_i X_{t-i} + \epsilon_t
+\end{align}
+
+\textbf{F-test:} $H_0$: $\beta_1 = \cdots = \beta_p = 0$ (no Granger causality)
+\end{mathbox}
+
+\textbf{Trading application:}
+\begin{itemize}
+    \item If $X$ Granger-causes $Y$, predict $Y_{t+1}$ using $X_t$
+    \item Use as a feature in ML models
+    \item Identify ``information leaders'' in the market
+\end{itemize}
+
+\subsubsection{Information Flow Metrics}
+
+\begin{mathbox}
+\textbf{Transfer Entropy:}
+
+A non-linear measure of directional information flow:
+\begin{equation}
+    T_{X \to Y} = H(Y_t | Y_{t-1}^{(k)}) - H(Y_t | Y_{t-1}^{(k)}, X_{t-1}^{(l)})
+\end{equation}
+
+where $H(\cdot)$ is entropy and superscripts indicate lag order.
+
+\textbf{Interpretation:}
+\begin{itemize}
+    \item $T_{X \to Y} > 0$: $X$ provides information about $Y$
+    \item $T_{X \to Y} > T_{Y \to X}$: Net information flow from $X$ to $Y$
+\end{itemize}
+\end{mathbox}
+
+\textbf{Advantages over Granger causality:}
+\begin{itemize}
+    \item Captures non-linear relationships
+    \item Model-free (no VAR assumption)
+    \item Asymmetric by construction
+\end{itemize}
+
+\textbf{Literature:}
+\begin{itemize}
+    \item Schreiber, T. (2000). ``Measuring Information Transfer.'' \textit{Physical Review Letters}, 85(2), 461.
+    \item Kwon, O., \& Yang, J. S. (2008). ``Information Flow between Stock Indices.'' \textit{Europhysics Letters}, 82(6), 68003.
+\end{itemize}
+
+% ============================================================================
+\subsection{Part 4: Regime-Adaptive Statistical Arbitrage}
+% ============================================================================
+
+\subsubsection{Integration with HMM Regime Detection}
+
+Our existing HMM identifies bull/bear/sideways regimes. This should inform stat arb strategy.
+
+\begin{mathbox}
+\textbf{Regime-Conditional Correlations:}
+
+Correlations change across regimes:
+\begin{equation}
+    \rho_{ij}^{(s)} = \text{Corr}(r_i, r_j | S_t = s)
+\end{equation}
+
+where $S_t \in \{1, 2, 3\}$ (bull, bear, sideways).
+
+\textbf{Empirical fact:} During crises, correlations increase (``correlation breakdown''):
+\begin{equation}
+    \rho_{ij}^{(\text{bear})} > \rho_{ij}^{(\text{bull})}
+\end{equation}
+\end{mathbox}
+
+\textbf{Implications for stat arb:}
+\begin{enumerate}
+    \item \textbf{Pairs selection}: Different optimal pairs per regime
+    \item \textbf{Hedge ratios}: Recalibrate when regime changes
+    \item \textbf{Position sizing}: Reduce exposure in high-correlation regimes
+    \item \textbf{Exit rules}: Widen thresholds in volatile regimes
+\end{enumerate}
+
+\subsubsection{Markov-Switching Cointegration}
+
+\begin{mathbox}
+\textbf{Markov-Switching VECM:}
+
+Extend the ECM to regime-dependent parameters:
+\begin{equation}
+    \Delta Y_t = \alpha_{S_t} (Y_{t-1} - \beta_{S_t} X_{t-1}) + \epsilon_t
+\end{equation}
+
+where $S_t$ follows a Markov chain:
+\begin{equation}
+    P(S_t = j | S_{t-1} = i) = p_{ij}
+\end{equation}
+
+\textbf{Estimation:} Hamilton (1989) filter or Bayesian MCMC
+\end{mathbox}
+
+\textbf{This explains our instability findings:}
+\begin{itemize}
+    \item Cointegration holds in regime 1 ($\alpha_1 < 0$) but not regime 2 ($\alpha_2 \approx 0$)
+    \item The 45\% stability = fraction of time in regime 1
+    \item Solution: Only trade when HMM indicates ``stable'' regime
+\end{itemize}
+
+\subsubsection{Regime-Specific Strategies}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Regime} & \textbf{Characteristics} & \textbf{Stat Arb Strategy} & \textbf{Position Size} \\
+\midrule
+Bull & Low vol, low corr & Aggressive pairs trading & Full \\
+Bear & High vol, high corr & Reduce/exit positions & 25\% or none \\
+Sideways & Moderate & Selective pairs trading & 50\% \\
+\bottomrule
+\end{tabular}
+\caption{Regime-specific statistical arbitrage adjustments}
+\end{table}
+
+\textbf{Literature:}
+\begin{itemize}
+    \item Hamilton, J. D. (1989). ``A New Approach to the Economic Analysis of Nonstationary Time Series and the Business Cycle.'' \textit{Econometrica}, 57(2), 357-384.
+    \item Ang, A., \& Bekaert, G. (2002). ``Regime Switches in Interest Rates.'' \textit{Journal of Business \& Economic Statistics}, 20(2), 163-182.
+\end{itemize}
+
+% ============================================================================
+\subsection{Part 5: Mathematical Formulations Summary}
+% ============================================================================
+
+\subsubsection{Complete Trading System Equations}
+
+\begin{mathbox}
+\textbf{1. Kalman Filter Hedge Ratio (Recommended):}
+\begin{align}
+    \text{Prediction:} \quad \hat{\beta}_{t|t-1} &= \hat{\beta}_{t-1} \\
+    P_{t|t-1} &= P_{t-1} + Q \\
+    \text{Innovation:} \quad \nu_t &= y_t - \hat{\beta}_{t|t-1} x_t \\
+    \text{Update:} \quad K_t &= \frac{P_{t|t-1} x_t}{P_{t|t-1} x_t^2 + R} \\
+    \hat{\beta}_t &= \hat{\beta}_{t|t-1} + K_t \nu_t \\
+    P_t &= (1 - K_t x_t) P_{t|t-1}
+\end{align}
+\end{mathbox}
+
+\begin{mathbox}
+\textbf{2. Spread Z-Score with Adaptive Parameters:}
+\begin{equation}
+    z_t = \frac{y_t - \hat{\beta}_t x_t - \mu_t^{(\text{EMA})}}{\sigma_t^{(\text{EWMA})}}
+\end{equation}
+where $\mu_t^{(\text{EMA})}$ and $\sigma_t^{(\text{EWMA})}$ use exponential smoothing.
+\end{mathbox}
+
+\begin{mathbox}
+\textbf{3. Position with Transaction Cost Threshold:}
+\begin{equation}
+    w_t = \begin{cases}
+        -1 & \text{if } z_t > z_{\text{entry}}^{+} \text{ and } w_{t-1} \leq 0 \\
+        +1 & \text{if } z_t < z_{\text{entry}}^{-} \text{ and } w_{t-1} \geq 0 \\
+        0 & \text{if } |z_t| < z_{\text{exit}} \\
+        w_{t-1} & \text{otherwise (no trade)}
+    \end{cases}
+\end{equation}
+where $z_{\text{entry}}^{\pm} = \pm(2 + \delta)$ with $\delta$ accounting for transaction costs.
+\end{mathbox}
+
+\begin{mathbox}
+\textbf{4. Regime-Weighted Signal:}
+\begin{equation}
+    \tilde{z}_t = \lambda_{S_t} \cdot z_t
+\end{equation}
+where $\lambda_s$ is the regime-specific weight from HMM:
+\begin{itemize}
+    \item $\lambda_{\text{bull}} = 1.0$
+    \item $\lambda_{\text{sideways}} = 0.5$
+    \item $\lambda_{\text{bear}} = 0.0$ (no trading)
+\end{itemize}
+\end{mathbox}
+
+\subsubsection{Parameter Estimation Challenges}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Parameter} & \textbf{Challenge} & \textbf{Solution} \\
+\midrule
+Kalman $Q$, $R$ & Unknown, affects adaptation & EM algorithm or cross-validation \\
+Entry threshold $z_{\text{entry}}$ & Tradeoff: trades vs. costs & Optimize on IS, expect decay \\
+Half-life $\tau_{1/2}$ & Changes over time & Rolling estimation \\
+HMM transitions $p_{ij}$ & Estimation error & Bayesian with priors \\
+\bottomrule
+\end{tabular}
+\caption{Parameter estimation challenges and solutions}
+\end{table}
+
+\subsubsection{Transaction Cost Considerations}
+
+\begin{mathbox}
+\textbf{Break-Even Analysis:}
+
+For a round-trip trade costing $2c$ (entry + exit), required profit:
+\begin{equation}
+    \text{Required } \Delta z > \frac{2c}{\sigma_{\text{spread}}}
+\end{equation}
+
+With 10 bps costs and typical spread $\sigma = 2\%$:
+\begin{equation}
+    \Delta z_{\text{min}} = \frac{0.002}{0.02} = 0.1
+\end{equation}
+
+\textbf{Implication:} Entry at $z = 2$, exit at $z = 0.5$ gives $\Delta z = 1.5$, which is profitable.
+
+But if half-life is 30 days and we hold for 30 days:
+\begin{equation}
+    \text{Expected profit} = 0.5 \times 1.5 \times 0.02 = 1.5\%
+\end{equation}
+Net of 20 bps costs: $1.5\% - 0.2\% = 1.3\%$ per trade. Annualized: $1.3\% \times 12 = 15.6\%$.
+\end{mathbox}
+
+% ============================================================================
+\subsection{Part 6: Implementation Recommendations}
+% ============================================================================
+
+\subsubsection{Ranked by Feasibility}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}clcccc@{}}
+\toprule
+\textbf{Rank} & \textbf{Method} & \textbf{Feasibility} & \textbf{Expected $\Delta$SR} & \textbf{Compute} & \textbf{Data Req.} \\
+\midrule
+1 & Kalman Filter Hedge Ratios & \textcolor{green!70!black}{High} & +0.1-0.3 & Low & Existing \\
+2 & PCA Statistical Arbitrage & \textcolor{green!70!black}{High} & +0.2-0.4 & Low & Existing \\
+3 & Regime-Conditional Trading & \textcolor{green!70!black}{High} & +0.1-0.2 & Low & Existing \\
+4 & Hierarchical Risk Parity & \textcolor{orange}{Medium} & +0.1 & Low & Existing \\
+5 & Fractional Cointegration & \textcolor{orange}{Medium} & +0.0-0.1 & Medium & Existing \\
+6 & Transfer Entropy Lead-Lag & \textcolor{red}{Low} & +0.0-0.1 & High & Intraday \\
+7 & Markov-Switching VECM & \textcolor{red}{Low} & +0.1-0.2 & High & Existing \\
+\bottomrule
+\end{tabular}
+\caption{Implementation recommendations ranked by feasibility}
+\end{table}
+
+\subsubsection{Recommended Implementation Path}
+
+\begin{enumerate}
+    \item \textbf{Immediate (already have infrastructure):}
+    \begin{itemize}
+        \item Integrate Kalman Filter hedge ratios into existing pairs framework
+        \item Add regime-conditional weights from HMM to stat arb signals
+        \item Test PCA residual mean reversion as an additional alpha source
+    \end{itemize}
+    
+    \item \textbf{Short-term (1-2 weeks):}
+    \begin{itemize}
+        \item Implement position smoothing for turnover reduction
+        \item Add transaction cost threshold to entry/exit rules
+        \item Validate on OOS holdout
+    \end{itemize}
+    
+    \item \textbf{Medium-term (optional):}
+    \begin{itemize}
+        \item Test fractional cointegration for pair selection
+        \item Explore Granger causality features for ML model
+        \item Consider multi-asset spreads (baskets vs. pairs)
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Realistic Expectations}
+
+\begin{itemize}
+    \item \textbf{Current OOS Sharpe: 2.81} (Kalman + LightGBM ensemble)
+    \item \textbf{Stat arb overlay potential: +0.1 to +0.3 Sharpe} (if done correctly)
+    \item \textbf{Risks:}
+    \begin{itemize}
+        \item Stat arb may be correlated with existing signals (no diversification)
+        \item Transaction costs eat into gains
+        \item Regime detection errors → false entries
+    \end{itemize}
+    \item \textbf{Key success factor:} Keep turnover low ($<20\%$ monthly)
+\end{itemize}
+
+\begin{insightbox}
+\textbf{Final Recommendation:}
+
+Given that your current system achieves OOS Sharpe of 2.81, the marginal benefit of adding stat arb is likely \textbf{small}. The most promising approach is:
+
+\begin{enumerate}
+    \item Use \textbf{PCA residuals} as a feature in your LightGBM model (not as a standalone strategy)
+    \item Apply \textbf{regime-conditional weighting} to reduce drawdowns during bear markets
+    \item Use \textbf{Kalman Filter spreads} only for the most stable pairs (top 10-20) as a diversifying overlay
+\end{enumerate}
+
+The stat arb analysis is most valuable as \textbf{insight into market structure} rather than a standalone profit center.
+\end{insightbox}
+
+% ============================================================================
+\subsection{References}
+% ============================================================================
+
+\begin{enumerate}
+    \item Avellaneda, M., \& Lee, J. H. (2010). ``Statistical Arbitrage in the U.S. Equities Market.'' \textit{Quantitative Finance}, 10(7), 761-782.
+    \item Baillie, R. T. (1996). ``Long Memory Processes and Fractional Integration in Econometrics.'' \textit{Journal of Econometrics}, 73(1), 5-59.
+    \item Bonanno, G., et al. (2003). ``Topology of Correlation-Based Minimal Spanning Trees.'' \textit{Physical Review E}, 68(4), 046130.
+    \item Engle, R. F., \& Granger, C. W. J. (1987). ``Co-integration and Error Correction.'' \textit{Econometrica}, 55(2), 251-276.
+    \item Gregory, A. W., \& Hansen, B. E. (1996). ``Residual-Based Tests for Cointegration with Regime Shifts.'' \textit{Journal of Econometrics}, 70(1), 99-126.
+    \item Hamilton, J. D. (1989). ``A New Approach to Nonstationary Time Series.'' \textit{Econometrica}, 57(2), 357-384.
+    \item López de Prado, M. (2016). ``Building Diversified Portfolios that Outperform Out-of-Sample.'' \textit{Journal of Portfolio Management}, 42(4), 59-69.
+    \item Mantegna, R. N. (1999). ``Hierarchical Structure in Financial Markets.'' \textit{European Physical Journal B}, 11(1), 193-197.
+    \item Montana, G., et al. (2009). ``Flexible Least Squares for Statistical Arbitrage.'' \textit{Expert Systems with Applications}, 36, 2819-2830.
+    \item Schreiber, T. (2000). ``Measuring Information Transfer.'' \textit{Physical Review Letters}, 85(2), 461.
+\end{enumerate}
+

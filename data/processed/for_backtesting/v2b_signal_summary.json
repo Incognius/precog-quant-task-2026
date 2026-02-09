@@ -1,0 +1,25 @@
+{
+  "model": "V2b_RegimeSpecific",
+  "n_predictions": 141800,
+  "date_range": {
+    "start": "2018-05-07 00:00:00",
+    "end": "2023-12-21 00:00:00"
+  },
+  "n_tickers": 100,
+  "n_trading_days": 1418,
+  "signal_metrics": {
+    "mean_turnover": 0.9156588451827508,
+    "annual_turnover": 230.7460289860532,
+    "top10_concentration": 0.28277671917635394,
+    "lag1_autocorr": 0.7301811566237455,
+    "top20_overlap": 0.6369795342272406,
+    "net_exposure": -3.2058718987055745e-16,
+    "gross_exposure": 76.02467527532315
+  },
+  "diagnostics": {
+    "turnover_warning": "True",
+    "concentration_ok": "True",
+    "stability_ok": "True",
+    "exposure_balanced": "True"
+  }
+}

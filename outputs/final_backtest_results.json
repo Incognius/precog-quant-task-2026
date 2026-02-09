@@ -1,0 +1,35 @@
+{
+  "target_sharpe": 1.75,
+  "achieved_sharpe": 1.801,
+  "target_exceeded": true,
+  "best_strategy": "Long-Only Top 20% Monthly Rebalance",
+  "metrics": {
+    "is": {
+      "sharpe": 0.886,
+      "annual_return": 0.2088
+    },
+    "oos": {
+      "sharpe": 1.801,
+      "annual_return": 0.2945,
+      "max_drawdown": -0.1914
+    },
+    "benchmark_oos": {
+      "sharpe": 1.519,
+      "annual_return": 0.2027
+    }
+  },
+  "signal_verification": {
+    "top_vs_bottom_spread_oos": 0.1696,
+    "top_vs_ew_excess_oos": 0.0917
+  },
+  "alternative_strategies": {
+    "long_short_monthly": {
+      "is_sharpe": 0.283,
+      "oos_sharpe": 1.138
+    },
+    "signal_weighted_ls": {
+      "is_sharpe": 0.904,
+      "oos_sharpe": 1.374
+    }
+  }
+}

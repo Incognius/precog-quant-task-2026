@@ -1,0 +1,29 @@
+{
+  "target_sharpe": 1.75,
+  "achieved_sharpe": 1.8,
+  "target_exceeded": true,
+  "best_strategy": "Long-Only Top 20% Monthly",
+  "metrics_oos": {
+    "sharpe": 1.8,
+    "ann_return": 0.294,
+    "max_dd": -0.191,
+    "win_rate": 0.537
+  },
+  "metrics_is": {
+    "sharpe": 0.89,
+    "ann_return": 0.155
+  },
+  "benchmark_oos": {
+    "sharpe": 1.52,
+    "ann_return": 0.203
+  },
+  "signal_verification": {
+    "top_20_return": 0.294,
+    "bottom_20_return": 0.125,
+    "spread": 0.17,
+    "is_positive_spread": true
+  },
+  "input_file": "data/processed/stage2_v2_predictions.parquet",
+  "n_predictions": 164400,
+  "date_range": "2019-07-03 to 2026-01-16"
+}

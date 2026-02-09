@@ -1,0 +1,70 @@
+{
+  "data": {
+    "n_assets": 100,
+    "is_start": "2016-01-25",
+    "is_end": "2024-01-12",
+    "oos_start": "2024-01-16",
+    "oos_end": "2026-01-16"
+  },
+  "features": {
+    "kalman": [
+      "kf_innovation",
+      "kf_innovation_abs",
+      "kf_state_uncertainty",
+      "kf_likelihood_ratio",
+      "kf_kalman_gain",
+      "kf_state_price_gap"
+    ],
+    "momentum": [
+      "mom_5",
+      "mom_21",
+      "mom_63",
+      "mom_126",
+      "rev_3",
+      "rev_5",
+      "vol_5",
+      "vol_21",
+      "dist_ma_21",
+      "dist_ma_50",
+      "mom_21_rank",
+      "rsi"
+    ],
+    "total": 18
+  },
+  "model": {
+    "type": "LightGBM + Ridge Ensemble",
+    "lgb_params": {
+      "n_estimators": 200,
+      "max_depth": 4,
+      "num_leaves": 8,
+      "learning_rate": 0.02,
+      "reg_alpha": 2.0,
+      "reg_lambda": 2.0,
+      "min_child_samples": 200,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "random_state": 42,
+      "verbosity": -1
+    },
+    "target": "5-day forward return"
+  },
+  "strategy": {
+    "top_n": 20,
+    "rebal_days": 10,
+    "stop_loss": 0.02,
+    "vol_target": 0.2,
+    "tc_bps": 10
+  },
+  "performance": {
+    "is": {
+      "total_return": 9.91666186406975,
+      "sharpe": 2.0397380697498178,
+      "max_dd": -0.16597062756559913
+    },
+    "oos": {
+      "total_return": 1.0414184499337713,
+      "sharpe": 2.9160804652280365,
+      "max_dd": -0.10677017052045477
+    }
+  }
+}

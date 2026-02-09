@@ -1,0 +1,30 @@
+{
+  "signal_type": "WEAK SIGNAL",
+  "findings": {
+    "ic_decay": {
+      "peak_lag": "10",
+      "peak_ic": 0.01303837139240794,
+      "short_horizon": "False"
+    },
+    "autocorr": {
+      "natural_halflife": 3.3942079120614044,
+      "lag1": 0.7213133953298422,
+      "high_persistence": "False"
+    },
+    "regime": {
+      "peak_lag_vs_regime": "8",
+      "leads_regime": "False",
+      "ic_degrades_at_change": "True"
+    },
+    "turnover": {
+      "recommended_hl": 2.0,
+      "turnover_at_rec": 217.51480157032512,
+      "ic_at_rec": 0.0057561071207869775,
+      "sharpe_at_rec": 0.7017678661750695
+    }
+  },
+  "recommended_halflife": 2,
+  "expected_turnover": 217.51480157032512,
+  "expected_ic": 0.0057561071207869775,
+  "expected_sharpe": 0.7017678661750695
+}

@@ -1,0 +1,49 @@
+{
+  "model_type": "LightGBM",
+  "model_params": {
+    "n_estimators": 100,
+    "max_depth": 4,
+    "num_leaves": 8,
+    "learning_rate": 0.03,
+    "reg_alpha": 2.0,
+    "reg_lambda": 2.0,
+    "min_child_samples": 200,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "random_state": 42,
+    "verbosity": -1
+  },
+  "trading_params": {
+    "long_bias": 4.0,
+    "rebal_days": 21,
+    "position_smoothing": 0.2,
+    "max_position": 0.05
+  },
+  "feature_list": [
+    "kf_innovation",
+    "kf_innovation_abs",
+    "kf_state_uncertainty",
+    "kf_likelihood_ratio",
+    "kf_kalman_gain",
+    "kf_state_price_gap",
+    "mom_5",
+    "mom_21",
+    "mom_63",
+    "mom_126",
+    "rev_3",
+    "rev_5",
+    "vol_5",
+    "vol_21",
+    "dist_ma_21",
+    "dist_ma_50",
+    "mom_21_rank",
+    "rsi"
+  ],
+  "is_sharpe": 0.9867024250647418,
+  "oos_sharpe": 1.4675498627766481,
+  "is_return": 2.2816312658287634,
+  "oos_return": 0.4561909410980616,
+  "is_max_dd": -0.33425323523945816,
+  "oos_max_dd": -0.1504458690883818,
+  "timestamp": "2026-01-30T21:18:44.736505"
+}

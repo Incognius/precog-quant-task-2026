@@ -1,0 +1,304 @@
+[
+  {
+    "timestamp": "2026-01-29T01:39:02.667084",
+    "hypothesis": "Baseline",
+    "variant": "60% Momentum + 40% Reversion",
+    "metrics": {
+      "gross_sharpe": 0.27459699885868233,
+      "net_sharpe": 0.11857834007395732,
+      "turnover": 9.47661331997997
+    },
+    "decision": "KEEP (Reference)",
+    "notes": "Starting point for all subsequent experiments"
+  },
+  {
+    "timestamp": "2026-01-29T01:39:58.866431",
+    "hypothesis": "4.1 Event-Proxy Drift",
+    "variant": "Unconditional Momentum",
+    "metrics": {
+      "net_sharpe": 0.11857834007395732,
+      "delta": 0.0,
+      "turnover": 9.47661331997997
+    },
+    "decision": "MARGINAL",
+    "notes": "Sharpe delta: +0.000"
+  },
+  {
+    "timestamp": "2026-01-29T01:39:58.866431",
+    "hypothesis": "4.1 Event-Proxy Drift",
+    "variant": "Event-Gated Momentum (binary)",
+    "metrics": {
+      "net_sharpe": 0.03480663318755671,
+      "delta": -0.08377170688640061,
+      "turnover": 9.845437702772646
+    },
+    "decision": "DISCARD",
+    "notes": "Sharpe delta: -0.084"
+  },
+  {
+    "timestamp": "2026-01-29T01:39:58.866431",
+    "hypothesis": "4.1 Event-Proxy Drift",
+    "variant": "Event-Weighted Momentum (decay)",
+    "metrics": {
+      "net_sharpe": 0.07787224084877842,
+      "delta": -0.0407060992251789,
+      "turnover": 10.805386479719578
+    },
+    "decision": "MARGINAL",
+    "notes": "Sharpe delta: -0.041"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:15.455192",
+    "hypothesis": "4.2 Trend-Regime Momentum",
+    "variant": "Momentum Always On",
+    "metrics": {
+      "net_sharpe": 0.11857834007395732,
+      "delta": 0.0,
+      "max_dd": -0.12303568443092727,
+      "turnover": 9.47661331997997
+    },
+    "decision": "MARGINAL",
+    "notes": "Sharpe delta: +0.000, DD: -12.3%"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:15.460413",
+    "hypothesis": "4.2 Trend-Regime Momentum",
+    "variant": "Trend-Gated (>0.5)",
+    "metrics": {
+      "net_sharpe": 0.013350922829000725,
+      "delta": -0.10522741724495659,
+      "max_dd": -0.18264200057869961,
+      "turnover": 12.90224857285929
+    },
+    "decision": "DISCARD",
+    "notes": "Sharpe delta: -0.105, DD: -18.3%"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:15.460413",
+    "hypothesis": "4.2 Trend-Regime Momentum",
+    "variant": "Trend-Scaled (smooth)",
+    "metrics": {
+      "net_sharpe": 0.19843975376996986,
+      "delta": 0.07986141369601255,
+      "max_dd": -0.1366656903624356,
+      "turnover": 12.720485528292437
+    },
+    "decision": "KEEP",
+    "notes": "Sharpe delta: +0.080, DD: -13.7%"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:15.460413",
+    "hypothesis": "4.2 Trend-Regime Momentum",
+    "variant": "Strong Trend Only (>0.7)",
+    "metrics": {
+      "net_sharpe": 0.3076006818700895,
+      "delta": 0.18902234179613217,
+      "max_dd": -0.11729251185578338,
+      "turnover": 13.85553289934902
+    },
+    "decision": "KEEP",
+    "notes": "Sharpe delta: +0.189, DD: -11.7%"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:15.460413",
+    "hypothesis": "4.2 Trend-Regime Momentum",
+    "variant": "Floored Scaling (min 0.3)",
+    "metrics": {
+      "net_sharpe": 0.19536023967380517,
+      "delta": 0.07678189959984785,
+      "max_dd": -0.13361095628182618,
+      "turnover": 12.52479118678017
+    },
+    "decision": "KEEP",
+    "notes": "Sharpe delta: +0.077, DD: -13.4%"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:40.387146",
+    "hypothesis": "4.3 Correlation Shock Gating",
+    "variant": "No Correlation Gating",
+    "metrics": {
+      "net_sharpe": 0.11857834007395732,
+      "delta": 0.0,
+      "max_dd": -0.12303568443092727
+    },
+    "decision": "MARGINAL",
+    "notes": "Alpha preservation strategy. DD improvement: 0.0%"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:40.387146",
+    "hypothesis": "4.3 Correlation Shock Gating",
+    "variant": "Corr Gate (z < 2)",
+    "metrics": {
+      "net_sharpe": 0.12855639686228876,
+      "delta": 0.00997805678833144,
+      "max_dd": -0.12303568443092938
+    },
+    "decision": "MARGINAL",
+    "notes": "Alpha preservation strategy. DD improvement: -0.0%"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:40.387146",
+    "hypothesis": "4.3 Correlation Shock Gating",
+    "variant": "Sigmoid Suppression",
+    "metrics": {
+      "net_sharpe": 0.11846918990291835,
+      "delta": -0.00010915017103896307,
+      "max_dd": -0.12301059188376562
+    },
+    "decision": "MARGINAL",
+    "notes": "Alpha preservation strategy. DD improvement: 0.0%"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:40.399965",
+    "hypothesis": "4.3 Correlation Shock Gating",
+    "variant": "Conservative Gate (z < 1.5)",
+    "metrics": {
+      "net_sharpe": 0.13227668015160812,
+      "delta": 0.013698340077650806,
+      "max_dd": -0.13063859426916857
+    },
+    "decision": "MARGINAL",
+    "notes": "Alpha preservation strategy. DD improvement: -0.8%"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:40.399965",
+    "hypothesis": "4.3 Correlation Shock Gating",
+    "variant": "Very Conservative (z < 1)",
+    "metrics": {
+      "net_sharpe": 0.367779997590111,
+      "delta": 0.24920165751615367,
+      "max_dd": -0.09201964415998631
+    },
+    "decision": "KEEP",
+    "notes": "Alpha preservation strategy. DD improvement: 3.1%"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:58.734598",
+    "hypothesis": "4.4 Quarter-End Structure",
+    "variant": "Baseline (no QE adjustment)",
+    "metrics": {
+      "net_sharpe": 0.11857834007395732,
+      "delta": 0.0,
+      "turnover": 9.47661331997997
+    },
+    "decision": "MARGINAL",
+    "notes": "Calendar effect test"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:58.734598",
+    "hypothesis": "4.4 Quarter-End Structure",
+    "variant": "Reduced Momentum at QE",
+    "metrics": {
+      "net_sharpe": 0.23260006886370535,
+      "delta": 0.11402172878974803,
+      "turnover": 10.622815823735603
+    },
+    "decision": "KEEP",
+    "notes": "Calendar effect test"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:58.734598",
+    "hypothesis": "4.4 Quarter-End Structure",
+    "variant": "Increased Reversion at QE",
+    "metrics": {
+      "net_sharpe": 0.21360924973986123,
+      "delta": 0.09503090966590391,
+      "turnover": 10.389306447065556
+    },
+    "decision": "KEEP",
+    "notes": "Calendar effect test"
+  },
+  {
+    "timestamp": "2026-01-29T01:40:58.734598",
+    "hypothesis": "4.4 Quarter-End Structure",
+    "variant": "Full Reversion at QE",
+    "metrics": {
+      "net_sharpe": 0.342276365522608,
+      "delta": 0.22369802544865067,
+      "turnover": 12.410009414121182
+    },
+    "decision": "KEEP",
+    "notes": "Calendar effect test"
+  },
+  {
+    "timestamp": "2026-01-29T01:41:14.562532",
+    "hypothesis": "4.5 Turn-of-Month Effect",
+    "variant": "Baseline (no TOM adjustment)",
+    "metrics": {
+      "net_sharpe": 0.11857834007395732,
+      "delta": 0.0,
+      "turnover": 9.47661331997997
+    },
+    "decision": "MARGINAL",
+    "notes": "Calendar/flow effect test"
+  },
+  {
+    "timestamp": "2026-01-29T01:41:14.562532",
+    "hypothesis": "4.5 Turn-of-Month Effect",
+    "variant": "Amplified at TOM (+50%)",
+    "metrics": {
+      "net_sharpe": 0.11859278751465983,
+      "delta": 1.4447440702516912e-05,
+      "turnover": 9.47681522283425
+    },
+    "decision": "MARGINAL",
+    "notes": "Calendar/flow effect test"
+  },
+  {
+    "timestamp": "2026-01-29T01:41:14.562532",
+    "hypothesis": "4.5 Turn-of-Month Effect",
+    "variant": "Reduced at TOM (-30%)",
+    "metrics": {
+      "net_sharpe": 0.11854628552963552,
+      "delta": -3.205454432179955e-05,
+      "turnover": 9.47666379569354
+    },
+    "decision": "MARGINAL",
+    "notes": "Calendar/flow effect test"
+  },
+  {
+    "timestamp": "2026-01-29T01:41:14.562532",
+    "hypothesis": "4.5 Turn-of-Month Effect",
+    "variant": "Reversion-only at TOM",
+    "metrics": {
+      "net_sharpe": 0.21782838952333056,
+      "delta": 0.09925004944937324,
+      "turnover": 11.50538367551327
+    },
+    "decision": "KEEP",
+    "notes": "Calendar/flow effect test"
+  },
+  {
+    "timestamp": "2026-01-29T01:44:37.719072",
+    "hypothesis": "4.6 Lunar Cycle",
+    "variant": "Baseline (no lunar)",
+    "metrics": {
+      "net_sharpe": 0.11857834007395732,
+      "delta": 0.0
+    },
+    "decision": "EXPECTED WEAK",
+    "notes": "Robustness test - effect should be negligible"
+  },
+  {
+    "timestamp": "2026-01-29T01:44:37.719072",
+    "hypothesis": "4.6 Lunar Cycle",
+    "variant": "Reduced at Full Moon",
+    "metrics": {
+      "net_sharpe": 0.11873608975069967,
+      "delta": 0.0001577496767423553
+    },
+    "decision": "EXPECTED WEAK",
+    "notes": "Robustness test - effect should be negligible"
+  },
+  {
+    "timestamp": "2026-01-29T01:44:37.719072",
+    "hypothesis": "4.6 Lunar Cycle",
+    "variant": "Amplified at New Moon",
+    "metrics": {
+      "net_sharpe": 0.11849750175810689,
+      "delta": -8.083831585042889e-05
+    },
+    "decision": "EXPECTED WEAK",
+    "notes": "Robustness test - effect should be negligible"
+  }
+]

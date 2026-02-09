@@ -1,0 +1,191 @@
+{
+  "ic_metrics": {
+    "mean_ic": -0.01566770580691773,
+    "ic_std": 0.1448315630602156,
+    "information_ratio": -0.10817880768436973,
+    "hit_rate": 0.4544812985179958,
+    "t_stat": -4.072181397010795,
+    "p_value": 4.9153046679961676e-05,
+    "regime_ic": {
+      "Low Vol": {
+        "mean_ic": -0.015934554372108646,
+        "ic_std": 0.1397173553717881,
+        "ir": -0.11404849690796662,
+        "hit_rate": 0.47150997150997154,
+        "n_days": 702
+      },
+      "Med Vol": {
+        "mean_ic": -0.025388997445119382,
+        "ic_std": 0.14872039767176437,
+        "ir": -0.17071630954857017,
+        "hit_rate": 0.4085714285714286,
+        "n_days": 350
+      },
+      "High Vol": {
+        "mean_ic": -0.0058930020935251725,
+        "ic_std": 0.1516230201947629,
+        "ir": -0.0388661437158783,
+        "hit_rate": 0.463768115942029,
+        "n_days": 345
+      }
+    },
+    "weaknesses": [
+      "LOW IC: Mean IC = -0.0157 < 0.01 threshold",
+      "LOW IR: Information Ratio = -0.108 < 0.1 threshold",
+      "LOW HIT RATE: 45.4% < 52% threshold",
+      "NEGATIVE IR IN LOW VOL: IR = -0.114",
+      "NEGATIVE IR IN MED VOL: IR = -0.171",
+      "NEGATIVE IR IN HIGH VOL: IR = -0.039"
+    ]
+  },
+  "backtest_metrics": {
+    "LongOnly_Rank": {
+      "ann_return": 0.9662228745495567,
+      "ann_vol": 0.44509063171101404,
+      "sharpe": 2.1708452295102463,
+      "max_drawdown": -0.8237142149217436,
+      "win_rate": 0.6148981026001406,
+      "avg_turnover": 0.5446240337315531,
+      "total_return": 130.14944542931764
+    },
+    "LongOnly_ZScore": {
+      "ann_return": 0.9662228745495567,
+      "ann_vol": 0.44509063171101404,
+      "sharpe": 2.1708452295102463,
+      "max_drawdown": -0.8237142149217436,
+      "win_rate": 0.6148981026001406,
+      "avg_turnover": 0.5446240337315531,
+      "total_return": 130.14944542931764
+    },
+    "LongOnly_EMA": {
+      "ann_return": 1.181406164641021,
+      "ann_vol": 0.4524399401399299,
+      "sharpe": 2.6111889332220266,
+      "max_drawdown": -0.8252726790623406,
+      "win_rate": 0.6212227687983134,
+      "avg_turnover": 0.26212227687983136,
+      "total_return": 432.5784748035798
+    },
+    "LongShort_Rank": {
+      "ann_return": -0.010868571631665148,
+      "ann_vol": 0.2982604492660193,
+      "sharpe": -0.03643986877378918,
+      "max_drawdown": -0.6776350584077958,
+      "win_rate": 0.5038650737877723,
+      "avg_turnover": 1.0782853127196066,
+      "total_return": -0.27086781559734785
+    },
+    "LongShort_ZScore": {
+      "ann_return": -0.010868571631665148,
+      "ann_vol": 0.2982604492660193,
+      "sharpe": -0.03643986877378918,
+      "max_drawdown": -0.6776350584077958,
+      "win_rate": 0.5038650737877723,
+      "avg_turnover": 1.0782853127196066,
+      "total_return": -0.27086781559734785
+    },
+    "LongShort_EMA": {
+      "ann_return": 0.35140589789231724,
+      "ann_vol": 0.2970336585072055,
+      "sharpe": 1.1830507682475075,
+      "max_drawdown": -0.5061590314055797,
+      "win_rate": 0.5298664792691496,
+      "avg_turnover": 0.518060435699227,
+      "total_return": 4.6614839278777955
+    },
+    "DollarNeutral_ZScore": {
+      "ann_return": 0.01975011306076931,
+      "ann_vol": 0.2840022832896712,
+      "sharpe": 0.06954209252122444,
+      "max_drawdown": -0.7209444904887169,
+      "win_rate": 0.5122979620520028,
+      "avg_turnover": 0.9588113887701584,
+      "total_return": -0.1126453668370152
+    }
+  },
+  "ew_benchmark": {
+    "sharpe": 2.2252971868097142,
+    "ann_return": 0.9244414736706498,
+    "max_dd": -0.8149526278413406
+  },
+  "best_strategy": "LongOnly_EMA",
+  "is_oos_comparison": [
+    {
+      "Strategy": "LongOnly_EMA",
+      "IS Sharpe": 3.0817005707517695,
+      "OOS Sharpe": 1.5336442119098055,
+      "Decay (%)": -50.23383431649627,
+      "IS Return": 157.25415792698217,
+      "OOS Return": 1.7376107513857444,
+      "IS MaxDD": -0.8252726790623406,
+      "OOS MaxDD": -0.6570863737640602,
+      "abs_decay": 50.23383431649627
+    },
+    {
+      "Strategy": "LongOnly_Rank",
+      "IS Sharpe": 2.6007405604034792,
+      "OOS Sharpe": 1.1963034537770605,
+      "Decay (%)": -54.0014305159502,
+      "IS Return": 61.45023228881686,
+      "OOS Return": 1.0990381539833125,
+      "IS MaxDD": -0.8237142149217435,
+      "OOS MaxDD": -0.6677221081589735,
+      "abs_decay": 54.0014305159502
+    },
+    {
+      "Strategy": "LongOnly_ZScore",
+      "IS Sharpe": 2.6007405604034792,
+      "OOS Sharpe": 1.1963034537770605,
+      "Decay (%)": -54.0014305159502,
+      "IS Return": 61.45023228881686,
+      "OOS Return": 1.0990381539833125,
+      "IS MaxDD": -0.8237142149217435,
+      "OOS MaxDD": -0.6677221081589735,
+      "abs_decay": 54.0014305159502
+    },
+    {
+      "Strategy": "LongShort_EMA",
+      "IS Sharpe": 1.6426807883020722,
+      "OOS Sharpe": 0.1612908342667994,
+      "Decay (%)": -90.1812430378811,
+      "IS Return": 4.632461103205985,
+      "OOS Return": 0.0036717408521382833,
+      "IS MaxDD": -0.4242277860773141,
+      "OOS MaxDD": -0.5061590314055788,
+      "abs_decay": 90.1812430378811
+    },
+    {
+      "Strategy": "DollarNeutral_ZScore",
+      "IS Sharpe": 0.14478832671383884,
+      "OOS Sharpe": -0.11767940657701374,
+      "Decay (%)": -181.27686067509887,
+      "IS Return": -0.002122342391372767,
+      "OOS Return": -0.11157843239699006,
+      "IS MaxDD": -0.7209444904887169,
+      "OOS MaxDD": -0.4163168997430476,
+      "abs_decay": 181.27686067509887
+    },
+    {
+      "Strategy": "LongShort_ZScore",
+      "IS Sharpe": 0.3426950898838072,
+      "OOS Sharpe": -0.9342126388818155,
+      "Decay (%)": -372.6075355204435,
+      "IS Return": 0.25341124756133526,
+      "OOS Return": -0.4187398746237704,
+      "IS MaxDD": -0.6776350584077958,
+      "OOS MaxDD": -0.5346581318519925,
+      "abs_decay": 372.6075355204435
+    },
+    {
+      "Strategy": "LongShort_Rank",
+      "IS Sharpe": 0.3426950898838072,
+      "OOS Sharpe": -0.9342126388818155,
+      "Decay (%)": -372.6075355204435,
+      "IS Return": 0.25341124756133526,
+      "OOS Return": -0.4187398746237704,
+      "IS MaxDD": -0.6776350584077958,
+      "OOS MaxDD": -0.5346581318519925,
+      "abs_decay": 372.6075355204435
+    }
+  ]
+}

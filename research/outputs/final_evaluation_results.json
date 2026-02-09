@@ -1,0 +1,39 @@
+{
+  "strategy": "60% Momentum (126d-42d) + 40% Mean Reversion (21d)",
+  "parameters": {
+    "momentum_lookback": 126,
+    "momentum_skip": 42,
+    "reversion_window": 21,
+    "momentum_weight": 0.6,
+    "reversion_weight": 0.4,
+    "rebalance_freq": 21,
+    "transaction_cost_bps": 10
+  },
+  "in_sample": {
+    "period": "2016-01-26 to 2023-12-29",
+    "days": 1997,
+    "net_sharpe": 0.17513836006553418,
+    "net_return": 0.010718980104847925,
+    "max_drawdown": -0.11795182624511147,
+    "turnover": 9.47661331997997
+  },
+  "out_of_sample": {
+    "period": "2024-01-02 to 2026-01-16",
+    "days": 513,
+    "net_sharpe": 0.15877124055290986,
+    "net_return": 0.008818032988501428,
+    "max_drawdown": -0.08844771205143043,
+    "turnover": 6.522133333333333
+  },
+  "benchmark": {
+    "type": "Equal-Weight Buy-Hold",
+    "sharpe": 1.4481946683305695,
+    "ann_return": 0.19304009861095328,
+    "max_drawdown": -0.15048314712667743
+  },
+  "success_criteria": {
+    "positive_sharpe": true,
+    "beats_benchmark": false,
+    "acceptable_drawdown": true
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "strategy": "Visibility Graph (HVG) - OPTIMIZED",
+  "improvement": {
+    "key_change": "window_size reduced from 20 to 10",
+    "rationale": "Smaller windows capture more actionable patterns with less Sharpe decay"
+  },
+  "config": {
+    "window_size": 10,
+    "use_hvg": true,
+    "signal_method": "composite",
+    "smooth_window": 3,
+    "strategy_type": "Long-Only"
+  },
+  "performance": {
+    "train_is": {
+      "sharpe": 2.9632730016832505,
+      "cagr": 0.5404230465959006,
+      "max_drawdown": -0.13733491933135886
+    },
+    "val_oos": {
+      "sharpe": 1.986793792512183,
+      "cagr": 0.3678099885818009,
+      "max_drawdown": -0.14349950597415176
+    },
+    "test_oos": {
+      "sharpe": 3.9135256167185797,
+      "cagr": 0.5716027533779133,
+      "max_drawdown": -0.0808337959203203
+    }
+  },
+  "comparison_vs_window20": {
+    "test_sharpe_improvement": 85.3706223670365,
+    "test_cagr_improvement": 104.60730556758091,
+    "test_maxdd_improvement": 23.372772720392707
+  },
+  "regime_insights": {
+    "strong_regimes": [
+      "Bull-Low Vol",
+      "Bull-High Vol"
+    ],
+    "weak_regimes": [
+      "Bear",
+      "Sideways-Low Vol"
+    ],
+    "recommendation": "Reduce position size during Bear/Sideways regimes"
+  }
+}

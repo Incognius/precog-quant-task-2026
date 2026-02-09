@@ -1,0 +1,21 @@
+{
+  "ic_decay": {
+    "peak_lag_days": 10,
+    "peak_ic": 0.01303837139240794,
+    "interpretation": "2-week forward-looking signal"
+  },
+  "autocorrelation": {
+    "natural_halflife_days": 3.4,
+    "lag1_autocorr": 0.7213133953298422
+  },
+  "regime_specific": {
+    "low_vol_optimal_hl": 1,
+    "normal_optimal_hl": 15,
+    "high_vol_optimal_hl": 63
+  },
+  "turnover": {
+    "annual_turnover": 218.042350225504,
+    "break_even_tc_bps": 11.275967431031864
+  },
+  "recommendation": "OPTION B: Regime-adaptive smoothing"
+}

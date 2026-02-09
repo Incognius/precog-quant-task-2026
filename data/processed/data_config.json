@@ -1,0 +1,8 @@
+{
+  "data_dir": "C:\\Users\\ponna\\OneDrive\\Desktop\\Precog Task\\data\\raw\\assets",
+  "oos_start": "2024-01-01",
+  "min_history_days": 252,
+  "random_seed": 42,
+  "load_timestamp": "2026-02-03T00:51:22.338765",
+  "data_hash": "c556925bf49ee481a3cd46ada51a09711630ef6c416c9e9a7ba31663d01675d6"
+}

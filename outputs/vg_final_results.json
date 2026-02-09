@@ -1,0 +1,44 @@
+{
+  "strategy": "Visibility Graph (HVG)",
+  "config": {
+    "window_size": 20,
+    "use_hvg": true,
+    "signal_method": "SignalMethod.COMPOSITE",
+    "smooth_window": 5
+  },
+  "full_period": {
+    "long_only_100": {
+      "sharpe": 1.854646176031255,
+      "cagr": 0.29635268723069474,
+      "max_drawdown": -0.14707698818991766,
+      "total_return": 12.02287661421802
+    },
+    "neutral_100": {
+      "sharpe": 1.45393919518015,
+      "cagr": 0.0965694774906285,
+      "max_drawdown": -0.11873155067056076,
+      "total_return": 1.4883591994799552
+    }
+  },
+  "oos_test_2024_2026": {
+    "long_only": {
+      "sharpe": 2.1111897703886124,
+      "cagr": 0.27936575959117715,
+      "max_drawdown": -0.1054896526861967,
+      "total_return": 0.6287954045448414
+    },
+    "neutral": {
+      "sharpe": 1.694174589948982,
+      "cagr": 0.11109761882038827,
+      "max_drawdown": -0.03857644660918794,
+      "total_return": 0.23196012628398965
+    },
+    "benchmark": {
+      "sharpe": 1.423918863846575
+    }
+  },
+  "sharpe_decay": {
+    "train_to_val": -0.3750984016139426,
+    "train_to_test": 0.046311358511063494
+  }
+}

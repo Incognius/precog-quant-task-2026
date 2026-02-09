@@ -1,0 +1,27 @@
+{
+  "strategy": "Optimized Portfolio Stat Arb",
+  "best_params": {
+    "entry_z": 1.0,
+    "exit_z": 0.0,
+    "kalman_delta": 1e-05,
+    "max_pairs": 20
+  },
+  "is_metrics": {
+    "sharpe": 11.207981641182709,
+    "total_return": 991.1415197098108,
+    "max_dd": -1.197825018427785,
+    "ann_return": 30.19596608042613,
+    "ann_vol": 2.694148424500786
+  },
+  "oos_metrics": {
+    "sharpe": 10.99134884010974,
+    "total_return": 69.95786224845489,
+    "max_dd": -0.956397069297174
+  },
+  "target_achieved": {
+    "is_sharpe_target": 1.75,
+    "oos_sharpe_target": 1.95,
+    "is_achieved": "True",
+    "oos_achieved": "True"
+  }
+}

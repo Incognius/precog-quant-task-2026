@@ -1,0 +1,21 @@
+{
+  "model": "V2b_RegimeSpecific",
+  "smoothing": {
+    "method": "EMA",
+    "halflife_days": 40
+  },
+  "breadth_reduction": {
+    "top_pct": 0.2,
+    "bottom_pct": 0.2,
+    "n_long_approx": 20,
+    "n_short_approx": 20
+  },
+  "metrics": {
+    "baseline_turnover": 230.7460289860532,
+    "optimized_turnover": 6.637007762879324,
+    "turnover_reduction_pct": 97.12367411389754,
+    "baseline_ic": 0.00835721290723959,
+    "optimized_ic": 0.01131318040624704,
+    "ls_sharpe_annualized": 1.4586555291900063
+  }
+}

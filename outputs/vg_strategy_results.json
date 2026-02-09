@@ -1,0 +1,21 @@
+{
+  "strategy_sharpe": 3.996106705327507,
+  "strategy_return": 10.370867785804652,
+  "strategy_max_dd": -0.09230583861720751,
+  "benchmark_sharpe": 1.1458969294245873,
+  "benchmark_return": NaN,
+  "avg_ic": -0.011757401172842326,
+  "avg_hit_rate": 0.5038169464428458,
+  "n_assets": 20,
+  "config": {
+    "window_size": 20,
+    "step_size": 1,
+    "use_hvg": true,
+    "signal_method": "composite",
+    "gamma_threshold": 2.5,
+    "clustering_threshold": 0.3,
+    "entropy_threshold": 2.0,
+    "smooth_window": 5,
+    "max_signal": 1.0
+  }
+}

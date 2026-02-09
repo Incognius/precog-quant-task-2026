@@ -1,0 +1,41 @@
+{
+  "research_summary": {
+    "total_experiments": 25,
+    "hypotheses_tested": 6,
+    "model_classes": [
+      "LightGBM",
+      "XGBoost",
+      "Neural Network",
+      "Rule-Based"
+    ],
+    "ensemble_methods": [
+      "Equal Weight",
+      "Sharpe-Weighted",
+      "Hybrid",
+      "Regime-Adaptive"
+    ]
+  },
+  "in_sample_results": {
+    "best_model": "XGBoost",
+    "net_sharpe": 1.334,
+    "period": "2016-01-26 to 2023-12-29"
+  },
+  "out_of_sample_results": {
+    "best_model": "Neural Network",
+    "net_sharpe": 1.1820171932623957,
+    "gross_sharpe": 1.3698176148845636,
+    "net_return": 0.08023572423936168,
+    "max_drawdown": -0.04289867174922868,
+    "turnover": 12.289347368421051,
+    "period": "2024-01-02 to 2026-01-16"
+  },
+  "benchmark": {
+    "equal_weight_sharpe": 1.4481946683305693
+  },
+  "key_findings": {
+    "4.2_trend_regime": "Strong Trend Only (>0.7) improved Net Sharpe from 0.119 to 0.308",
+    "4.3_correlation_gating": "Very Conservative (z<1) achieved Net Sharpe 0.368 with lower DD",
+    "4.4_quarter_end": "Full Reversion at QE achieved Net Sharpe 0.342",
+    "4.6_lunar_robustness": "No effect detected - confirms methodology robustness"
+  }
+}

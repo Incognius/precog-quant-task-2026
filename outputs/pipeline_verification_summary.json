@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-01-31 03:30:14.905089",
+  "is_sharpe": 2.099127389368942,
+  "oos_sharpe": 1.955726149153211,
+  "is_return": 19.99546381198332,
+  "oos_return": 0.9016015985891619,
+  "is_max_dd": -0.13722401950194285,
+  "oos_max_dd": -0.10824794010772343,
+  "bench_is_sharpe": 1.0118182329170131,
+  "bench_oos_sharpe": 1.4699355443256694,
+  "alpha_from_model": 0.3400181698332194,
+  "alpha_from_rebalancing": 0.7472909866187096,
+  "bugs_fixed": [
+    "Vol targeting created different strategy (67% correlation)",
+    "kf_state_uncertainty is constant (Kalman bug)",
+    "LightGBM early stops at 3 iterations (weak features)"
+  ]
+}

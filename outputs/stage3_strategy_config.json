@@ -1,0 +1,95 @@
+{
+  "created_at": "2026-02-07T20:13:27.383011",
+  "analysis_summary": {
+    "signal_type": "Trend estimator (smoothed EMA target)",
+    "optimal_horizon": "Signal best predicts 5-21 day returns",
+    "key_insight": "Model captures trend direction but not daily noise; requires longer holding periods",
+    "recommendation": "Use monthly rebalancing with inverse-vol sizing for trend-following"
+  },
+  "best_parameters": {
+    "rebalance_freq": 63,
+    "stop_loss_pct": null,
+    "vol_target": 0.1,
+    "position_sizing": "inv_vol",
+    "strategy_type": "long_short",
+    "transaction_cost_bps": 10
+  },
+  "all_strategies_tested": 148,
+  "performance_summary": {
+    "Best_Sharpe": {
+      "is_sharpe": -1.961102036601306,
+      "is_return": -0.02272746004125059,
+      "is_max_dd": -0.15760860589227943,
+      "turnover": 478.8
+    },
+    "Long_Only_Monthly_InvVol": {
+      "is_sharpe": -3.4944528440003944,
+      "is_return": -0.023469428536151415,
+      "is_max_dd": -0.16236826769937784,
+      "turnover": 495.59999999996097
+    },
+    "Conservative_Bimonthly": {
+      "is_sharpe": -2.4415630684393252,
+      "is_return": -0.0352599135342323,
+      "is_max_dd": -0.23263689659169884,
+      "turnover": 498.3999999999999
+    },
+    "Momentum_Trend_Monthly": {
+      "is_sharpe": -2.7059360833980026,
+      "is_return": -0.014254279640956269,
+      "is_max_dd": -0.10157014236696704,
+      "turnover": 490.25454545454545
+    }
+  },
+  "benchmark": {
+    "is_sharpe": 0.8026267829131821,
+    "is_return": 0.16746950492024548,
+    "oos_sharpe": 1.5194399586319893
+  },
+  "ic_by_horizon": {
+    "1": {
+      "ic": -0.011261220881593051,
+      "ic_ir": -0.049245661070248484
+    },
+    "5": {
+      "ic": -0.012578407804203972,
+      "ic_ir": -0.05915793575557199
+    },
+    "10": {
+      "ic": -0.01171075703034824,
+      "ic_ir": -0.05541844968636326
+    },
+    "21": {
+      "ic": -0.015131178077573668,
+      "ic_ir": -0.0763742505109589
+    },
+    "42": {
+      "ic": -0.021822931378726755,
+      "ic_ir": -0.11361375290210073
+    }
+  },
+  "feature_importance": {
+    "top_features": [
+      {
+        "feature": "vol_adj_ret_5d",
+        "ic_21d": 0.4278921255154468
+      },
+      {
+        "feature": "vol_adj_ret_21d",
+        "ic_21d": 0.9448111225376435
+      },
+      {
+        "feature": "vol_21d",
+        "ic_21d": 0.05384057336691352
+      },
+      {
+        "feature": "vol_63d",
+        "ic_21d": 0.0538923869398434
+      },
+      {
+        "feature": "vol_regime",
+        "ic_21d": 0.01252453079822197
+      }
+    ]
+  }
+}

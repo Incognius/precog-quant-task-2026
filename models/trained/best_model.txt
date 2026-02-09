@@ -1,0 +1,4 @@
+ridge
+params: {'alpha': 1000}
+retrain_freq: 63
+decay_halflife: 126

@@ -1,0 +1,28 @@
+{
+  "model": "mlp",
+  "params": {
+    "hidden_layer_sizes": [
+      128,
+      64,
+      32
+    ],
+    "alpha": 0.01,
+    "learning_rate_init": 0.001,
+    "max_iter": 300
+  },
+  "target": "fwd_ret_5d cross-sectional z-score",
+  "is_metrics": {
+    "ic": 0.002397921311802811,
+    "ic_ir": 0.3070226077466705,
+    "ic_1d": 0.0004713356272642133,
+    "spread_sharpe": 0.13521136964449876
+  },
+  "oos_metrics": {
+    "ic": 0.0064748586975831145,
+    "ic_ir": 0.8013161632428736,
+    "ic_1d": -0.0003735381774741314,
+    "spread_sharpe": 0.6323514414563852
+  },
+  "feature_count": 38,
+  "timestamp": "2026-02-08T01:44:09.114055"
+}

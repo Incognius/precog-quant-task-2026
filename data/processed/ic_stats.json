@@ -1,0 +1,25 @@
+{
+  "best_model": "ridge",
+  "model_params": {
+    "alpha": 1000
+  },
+  "wf_config": {
+    "initial_train_days": 252,
+    "retrain_frequency": 63,
+    "decay_halflife": 126,
+    "embargo_days": 5
+  },
+  "mean_oos_ic": 0.03814863197641043,
+  "oos_ic_std": 0.05614693538471228,
+  "information_ratio": 0.6794428175824813,
+  "hit_rate": 0.782608695652174,
+  "n_folds": 23,
+  "models_tested": [
+    "lightgbm",
+    "ridge",
+    "xgboost",
+    "lasso",
+    "elasticnet",
+    "randomforest"
+  ]
+}

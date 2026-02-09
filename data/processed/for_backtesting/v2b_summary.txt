@@ -1,0 +1,41 @@
+
+======================================================================
+V2b MODEL SUMMARY FOR BACKTESTING
+======================================================================
+
+MODEL ARCHITECTURE:
+  - Type: Ridge Regression (α=1000)
+  - Regime-Specific: Yes (3 sub-models)
+  - Features: 45 (including regime interactions)
+  - Walk-Forward: 63-day retrain, 126-day decay halflife
+
+PERFORMANCE METRICS:
+  - Mean OOS IC: 0.0434
+  - IC Std: 0.0710
+  - Information Ratio: 0.611
+  - Hit Rate: 69.6%
+  - L-S Sharpe (annualized): 1.03
+
+STATISTICAL SIGNIFICANCE:
+  ✅ 6/6 tests passed
+  - T-test p-value: 0.0078
+  - Wilcoxon p-value: 0.0112
+  - Bootstrap CI: [0.015, 0.072]
+  - Permutation p-value: <0.001
+
+REGIME PERFORMANCE:
+  - Low Vol IC: 0.12116234942674288
+  - Med Vol IC: 0.013342862629694138
+  - High Vol IC: -0.01705739572256277
+
+KNOWN WEAKNESSES:
+  ⚠️ IC trend: -0.003/year
+  ⚠️ Max IC drawdown: -9.1
+  ⚠️ Market beta: 0.17
+
+FILES SAVED:
+  - v2b_predictions.parquet: OOS predictions for backtesting
+  - v2b_config.json: Full model configuration
+  - v2b_fold_results.csv: Per-fold performance metrics
+
+======================================================================

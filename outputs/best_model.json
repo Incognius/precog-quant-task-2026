@@ -1,0 +1,92 @@
+{
+  "history": [
+    {
+      "name": "baseline_plus_momentum_v1",
+      "timestamp": "2026-01-23T19:45:36.256578",
+      "gross_sharpe": 0.03839023583920893,
+      "net_sharpe": -0.8843717464845176,
+      "max_dd": -0.8336441905643607,
+      "turnover": 157.16061566319604,
+      "features": [
+        "f1_short_mom_norm",
+        "f2_medium_mom",
+        "f3_volatility",
+        "mom_3d",
+        "mom_5d",
+        "mom_10d"
+      ]
+    },
+    {
+      "name": "baseline_mom_vol_v1",
+      "timestamp": "2026-01-23T19:56:32.644205",
+      "gross_sharpe": -0.03842406857807556,
+      "net_sharpe": -0.8996152116905358,
+      "max_dd": -0.8283358380895091,
+      "turnover": 145.54984155726575,
+      "features": [
+        "f1_short_mom_norm",
+        "f2_medium_mom",
+        "f3_volatility",
+        "mom_3d",
+        "mom_5d",
+        "mom_10d",
+        "vol_20d",
+        "vol_ratio",
+        "vol_of_vol"
+      ]
+    },
+    {
+      "name": "baseline_plus_momentum_v1",
+      "timestamp": "2026-01-23T23:01:57.083173",
+      "gross_sharpe": 0.03839023583920893,
+      "net_sharpe": -0.8843717464845176,
+      "max_dd": -0.8336441905643607,
+      "turnover": 157.16061566319604,
+      "features": [
+        "f1_short_mom_norm",
+        "f2_medium_mom",
+        "f3_volatility",
+        "mom_3d",
+        "mom_5d",
+        "mom_10d"
+      ]
+    },
+    {
+      "name": "baseline_mom_vol_v1",
+      "timestamp": "2026-01-23T23:02:29.257706",
+      "gross_sharpe": -0.03842406857807556,
+      "net_sharpe": -0.8996152116905358,
+      "max_dd": -0.8283358380895091,
+      "turnover": 145.54984155726575,
+      "features": [
+        "f1_short_mom_norm",
+        "f2_medium_mom",
+        "f3_volatility",
+        "mom_3d",
+        "mom_5d",
+        "mom_10d",
+        "vol_20d",
+        "vol_ratio",
+        "vol_of_vol"
+      ]
+    }
+  ],
+  "best_model": {
+    "name": "baseline_plus_momentum_v1",
+    "timestamp": "2026-01-23T19:45:36.256578",
+    "gross_sharpe": 0.03839023583920893,
+    "net_sharpe": -0.8843717464845176,
+    "max_dd": -0.8336441905643607,
+    "turnover": 157.16061566319604,
+    "features": [
+      "f1_short_mom_norm",
+      "f2_medium_mom",
+      "f3_volatility",
+      "mom_3d",
+      "mom_5d",
+      "mom_10d"
+    ]
+  },
+  "best_sharpe": 0.03839023583920893,
+  "updated": "2026-01-23T23:02:29.258713"
+}

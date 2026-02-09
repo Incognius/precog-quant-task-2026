@@ -1,0 +1,11 @@
+{
+  "real_sharpe": 0.032574295285956616,
+  "real_ic": -0.0026371196543711964,
+  "test_a_p_value": 0.405,
+  "test_b_p_value": 0.455,
+  "test_c_p_value": 0.345,
+  "n_simulations": 200,
+  "hypothesis_1_kalman_wins": 3,
+  "hypothesis_1_p_value": 6.526728425430711e-121,
+  "hypothesis_1_effect_size": 0.7686770204500522
+}

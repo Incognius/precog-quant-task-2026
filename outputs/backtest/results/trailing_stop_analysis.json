@@ -1,0 +1,103 @@
+{
+  "analysis_date": "2026-02-04T16:12:20.935574",
+  "base_strategy": "Long_Only_Weekly",
+  "test_period": {
+    "start": "2018-05-07 00:00:00",
+    "end": "2023-12-21 00:00:00",
+    "days": 1418
+  },
+  "configurations": {
+    "Trailing_2pct": {
+      "trailing_pct": 0.02,
+      "sharpe": 0.9240238615340345,
+      "ann_return": 0.12216054032684606,
+      "ann_vol": 0.13220496289353295,
+      "max_dd": -0.15848693499959624,
+      "n_stops": 73,
+      "time_in_market": 74.25952045133991,
+      "total_return": 0.8926678558516035
+    },
+    "Trailing_3pct": {
+      "trailing_pct": 0.03,
+      "sharpe": 1.182967530902866,
+      "ann_return": 0.16459896916803757,
+      "ann_vol": 0.13914073283348033,
+      "max_dd": -0.14967449597847762,
+      "n_stops": 47,
+      "time_in_market": 83.42736248236953,
+      "total_return": 1.3901278685818523
+    },
+    "Trailing_4pct": {
+      "trailing_pct": 0.04,
+      "sharpe": 1.1305900892127392,
+      "ann_return": 0.1710632006125706,
+      "ann_vol": 0.1513043518112622,
+      "max_dd": -0.2054753396884942,
+      "n_stops": 31,
+      "time_in_market": 89.0691114245416,
+      "total_return": 1.4539630511112511
+    },
+    "Trailing_5pct": {
+      "trailing_pct": 0.05,
+      "sharpe": 0.9007510994982596,
+      "ann_return": 0.14079142899248132,
+      "ann_vol": 0.15630447642073997,
+      "max_dd": -0.20622253168532603,
+      "n_stops": 23,
+      "time_in_market": 91.88998589562765,
+      "total_return": 1.0607583017428515
+    },
+    "Trailing_7pct": {
+      "trailing_pct": 0.07,
+      "sharpe": 1.0334412807932822,
+      "ann_return": 0.1649308570049064,
+      "ann_vol": 0.15959383476369693,
+      "max_dd": -0.22837919072993348,
+      "n_stops": 15,
+      "time_in_market": 94.71086036671367,
+      "total_return": 1.353566301321107
+    },
+    "Trailing_10pct": {
+      "trailing_pct": 0.1,
+      "sharpe": 1.1095341033069472,
+      "ann_return": 0.18121330308742836,
+      "ann_vol": 0.16332377936588452,
+      "max_dd": -0.19152658757847457,
+      "n_stops": 7,
+      "time_in_market": 97.53173483779972,
+      "total_return": 1.5704237316905845
+    },
+    "Trailing_15pct": {
+      "trailing_pct": 0.15,
+      "sharpe": 0.9430823480183481,
+      "ann_return": 0.16087405381871145,
+      "ann_vol": 0.17058325198933907,
+      "max_dd": -0.3020339816605355,
+      "n_stops": 3,
+      "time_in_market": 98.94217207334273,
+      "total_return": 1.2767846207205005
+    },
+    "No_Stop": {
+      "trailing_pct": 0,
+      "sharpe": 0.9483130745033658,
+      "ann_return": 0.16541059322636242,
+      "ann_vol": 0.17442614435426657,
+      "max_dd": -0.28877156693808664,
+      "n_stops": 0,
+      "time_in_market": 100.0,
+      "total_return": 1.3270258967723656
+    }
+  },
+  "best_config": {
+    "name": "Trailing_3pct",
+    "sharpe": 1.183,
+    "max_dd": -0.15,
+    "sharpe_improvement_vs_baseline": 0.248,
+    "max_dd_improvement_vs_baseline": 0.481
+  },
+  "recommendations": {
+    "conservative": "Trailing 3% - Best Sharpe, 47 stops/5.5yrs",
+    "moderate": "Trailing 10% - Good balance, 7 stops/5.5yrs",
+    "aggressive": "No Stop - Full exposure, 29% max DD"
+  }
+}

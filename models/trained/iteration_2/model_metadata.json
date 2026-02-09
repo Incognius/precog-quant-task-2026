@@ -1,0 +1,26 @@
+{
+  "model_name": "V1_Ridge_Baseline",
+  "training_date": "2026-02-03T18:00:24.426480",
+  "walk_forward_config": {
+    "initial_train_days": 252,
+    "retrain_frequency": 63,
+    "decay_halflife": 126,
+    "embargo_days": 5,
+    "expanding_window": true
+  },
+  "model_params": {
+    "type": "ridge",
+    "alpha": 1000
+  },
+  "feature_count": 41,
+  "performance": {
+    "mean_oos_ic": 0.03814863197641043,
+    "information_ratio": 0.6794428175824813,
+    "hit_rate": 0.782608695652174
+  },
+  "regime_ics": {
+    "low_vol": 0.10370285733585209,
+    "med_vol": 0.041594674615647295,
+    "high_vol": -0.06420465234670439
+  }
+}

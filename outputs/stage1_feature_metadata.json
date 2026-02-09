@@ -1,0 +1,367 @@
+{
+  "created_at": "2026-02-07T18:59:43.780591",
+  "date_range": [
+    "2016-06-08 00:00:00",
+    "2026-01-16 00:00:00"
+  ],
+  "n_rows": 241700,
+  "n_tickers": 100,
+  "features": {
+    "momentum": [
+      "mom_5d",
+      "mom_10d",
+      "mom_21d",
+      "mom_acc_21d",
+      "mom_63d",
+      "mom_acc_63d",
+      "mom_126d",
+      "mom_acc_126d",
+      "mom_252d",
+      "mom_acc_252d"
+    ],
+    "volatility": [
+      "vol_5d",
+      "atr_5d",
+      "vol_21d",
+      "atr_21d",
+      "vol_63d",
+      "atr_63d",
+      "vov_21d",
+      "vov_63d"
+    ],
+    "regime": [
+      "vol_regime",
+      "vol_percentile",
+      "price_vs_ma_63d",
+      "price_vs_ma_126d",
+      "price_vs_ma_252d",
+      "trend_regime",
+      "trend_strength"
+    ],
+    "kalman": [
+      "kalman_price",
+      "kalman_velocity",
+      "kalman_deviation",
+      "kalman_momentum"
+    ],
+    "technical": [
+      "rsi_7d",
+      "rsi_14d",
+      "rsi_21d",
+      "macd_normalized",
+      "macd_histogram",
+      "bb_position",
+      "bb_width",
+      "volume_ratio",
+      "volume_trend"
+    ],
+    "zscore": [
+      "mom_5d_zscore",
+      "mom_10d_zscore",
+      "mom_21d_zscore",
+      "mom_acc_21d_zscore",
+      "mom_63d_zscore",
+      "mom_acc_63d_zscore",
+      "mom_126d_zscore",
+      "mom_acc_126d_zscore",
+      "mom_252d_zscore",
+      "mom_acc_252d_zscore",
+      "vol_5d_zscore",
+      "atr_5d_zscore",
+      "vol_21d_zscore",
+      "atr_21d_zscore",
+      "vol_63d_zscore",
+      "atr_63d_zscore",
+      "vov_21d_zscore",
+      "vov_63d_zscore",
+      "vol_regime_zscore",
+      "vol_percentile_zscore",
+      "price_vs_ma_63d_zscore",
+      "price_vs_ma_126d_zscore",
+      "price_vs_ma_252d_zscore",
+      "trend_regime_zscore",
+      "trend_strength_zscore",
+      "kalman_price_zscore",
+      "kalman_velocity_zscore",
+      "kalman_deviation_zscore",
+      "kalman_momentum_zscore",
+      "rsi_7d_zscore",
+      "rsi_14d_zscore",
+      "rsi_21d_zscore",
+      "macd_normalized_zscore",
+      "macd_histogram_zscore",
+      "bb_position_zscore",
+      "bb_width_zscore",
+      "volume_ratio_zscore",
+      "volume_trend_zscore"
+    ]
+  },
+  "ic_summary": [
+    {
+      "mean_ic": 0.01611190609193792,
+      "std_ic": 0.2690339138543539,
+      "ic_ir": 0.05988801134815879,
+      "positive_days_pct": 53.80868024800709,
+      "feature": "mom_252d_zscore"
+    },
+    {
+      "mean_ic": 0.011839016910881775,
+      "std_ic": 0.257619238790252,
+      "ic_ir": 0.04595548438804797,
+      "positive_days_pct": 53.98489932885906,
+      "feature": "mom_126d_zscore"
+    },
+    {
+      "mean_ic": 0.011604881736215244,
+      "std_ic": 0.2702202596576341,
+      "ic_ir": 0.04294600910614139,
+      "positive_days_pct": 53.87339530765826,
+      "feature": "price_vs_ma_252d_zscore"
+    },
+    {
+      "mean_ic": 0.004971800238774158,
+      "std_ic": 0.19962064517674794,
+      "ic_ir": 0.02490624269790034,
+      "positive_days_pct": 51.1330861145447,
+      "feature": "vov_63d_zscore"
+    },
+    {
+      "mean_ic": 0.003148924567205848,
+      "std_ic": 0.13018203312306342,
+      "ic_ir": 0.02418862641214283,
+      "positive_days_pct": 51.48594377510041,
+      "feature": "volume_ratio_zscore"
+    },
+    {
+      "mean_ic": 0.0042743081119783494,
+      "std_ic": 0.20530608587031507,
+      "ic_ir": 0.02081919828034891,
+      "positive_days_pct": 50.55776892430279,
+      "feature": "trend_regime_zscore"
+    },
+    {
+      "mean_ic": 0.0033588889412687743,
+      "std_ic": 0.17824135691788973,
+      "ic_ir": 0.018844610462271386,
+      "positive_days_pct": 50.587282300526525,
+      "feature": "trend_strength_zscore"
+    },
+    {
+      "mean_ic": 0.0031432452281228785,
+      "std_ic": 0.1768250155213028,
+      "ic_ir": 0.017776021209886996,
+      "positive_days_pct": 50.26326447954638,
+      "feature": "vov_21d_zscore"
+    },
+    {
+      "mean_ic": 0.004410950207921778,
+      "std_ic": 0.2559386091329731,
+      "ic_ir": 0.017234407192963312,
+      "positive_days_pct": 53.29140461215933,
+      "feature": "price_vs_ma_126d_zscore"
+    },
+    {
+      "mean_ic": 0.004356211120575853,
+      "std_ic": 0.25934760524054845,
+      "ic_ir": 0.016796804870651213,
+      "positive_days_pct": 50.90397750100442,
+      "feature": "vol_21d_zscore"
+    },
+    {
+      "mean_ic": 0.004631106953944896,
+      "std_ic": 0.28372196593319515,
+      "ic_ir": 0.01632269442755469,
+      "positive_days_pct": 50.96035962402943,
+      "feature": "vol_63d_zscore"
+    },
+    {
+      "mean_ic": 0.00289797598826288,
+      "std_ic": 0.2167209387036357,
+      "ic_ir": 0.013371924301641422,
+      "positive_days_pct": 50.37924151696607,
+      "feature": "vol_5d_zscore"
+    },
+    {
+      "mean_ic": 0.0012733498734300293,
+      "std_ic": 0.1279416241579998,
+      "ic_ir": 0.009952584866847275,
+      "positive_days_pct": 50.32154340836013,
+      "feature": "volume_trend_zscore"
+    },
+    {
+      "mean_ic": 0.0018212635347647564,
+      "std_ic": 0.21611306089199325,
+      "ic_ir": 0.00842736448414949,
+      "positive_days_pct": 51.00401606425703,
+      "feature": "bb_width_zscore"
+    },
+    {
+      "mean_ic": 0.0015164694185447523,
+      "std_ic": 0.24293634355934834,
+      "ic_ir": 0.006242250112528182,
+      "positive_days_pct": 52.02288516550878,
+      "feature": "mom_63d_zscore"
+    },
+    {
+      "mean_ic": 0.0002831169763531183,
+      "std_ic": 0.23427943494866899,
+      "ic_ir": 0.001208458507227934,
+      "positive_days_pct": 51.12570356472796,
+      "feature": "mom_acc_252d_zscore"
+    },
+    {
+      "mean_ic": -0.0004891156833191156,
+      "std_ic": 0.1487309814965853,
+      "ic_ir": -0.0032885931234272517,
+      "positive_days_pct": 49.69350224765019,
+      "feature": "atr_63d_zscore"
+    },
+    {
+      "mean_ic": -0.0007227804353313117,
+      "std_ic": 0.1482564026414549,
+      "ic_ir": -0.004875205535586697,
+      "positive_days_pct": 49.37725994375251,
+      "feature": "atr_21d_zscore"
+    },
+    {
+      "mean_ic": -0.0011077361141928472,
+      "std_ic": 0.14831411170879644,
+      "ic_ir": -0.007468851754450165,
+      "positive_days_pct": 48.902195608782435,
+      "feature": "atr_5d_zscore"
+    },
+    {
+      "mean_ic": -0.00164489468519715,
+      "std_ic": 0.14132204793302977,
+      "ic_ir": -0.011639335178702656,
+      "positive_days_pct": 43.78486055776892,
+      "feature": "vol_regime_zscore"
+    },
+    {
+      "mean_ic": -0.0028549790868223823,
+      "std_ic": 0.24296135255040288,
+      "ic_ir": -0.011750754001318111,
+      "positive_days_pct": 51.307189542483655,
+      "feature": "price_vs_ma_63d_zscore"
+    },
+    {
+      "mean_ic": -0.0018881383259203017,
+      "std_ic": 0.14027972958934723,
+      "ic_ir": -0.013459808698673918,
+      "positive_days_pct": 49.8406374501992,
+      "feature": "kalman_price_zscore"
+    },
+    {
+      "mean_ic": -0.003772010260898188,
+      "std_ic": 0.22472978076482233,
+      "ic_ir": -0.016784647973145567,
+      "positive_days_pct": 50.23696682464455,
+      "feature": "mom_acc_126d_zscore"
+    },
+    {
+      "mean_ic": -0.004347982689020993,
+      "std_ic": 0.2395780618656672,
+      "ic_ir": -0.01814850096601951,
+      "positive_days_pct": 49.721115537848604,
+      "feature": "macd_normalized_zscore"
+    },
+    {
+      "mean_ic": -0.003102986047691933,
+      "std_ic": 0.15561637661281438,
+      "ic_ir": -0.019939971057277642,
+      "positive_days_pct": 47.94459338695264,
+      "feature": "vol_percentile_zscore"
+    },
+    {
+      "mean_ic": -0.004996734928926245,
+      "std_ic": 0.2257658867136832,
+      "ic_ir": -0.022132373492944387,
+      "positive_days_pct": 51.27490039840637,
+      "feature": "rsi_21d_zscore"
+    },
+    {
+      "mean_ic": -0.005642794876236228,
+      "std_ic": 0.21700012985154665,
+      "ic_ir": -0.026003647451714393,
+      "positive_days_pct": 49.87951807228916,
+      "feature": "bb_position_zscore"
+    },
+    {
+      "mean_ic": -0.006106965445733282,
+      "std_ic": 0.23154260980123073,
+      "ic_ir": -0.026375125720222006,
+      "positive_days_pct": 49.221556886227546,
+      "feature": "mom_5d_zscore"
+    },
+    {
+      "mean_ic": -0.0059523458281529155,
+      "std_ic": 0.22306765614159935,
+      "ic_ir": -0.02668403805572812,
+      "positive_days_pct": 49.123505976095615,
+      "feature": "kalman_deviation_zscore"
+    },
+    {
+      "mean_ic": -0.006067738859177682,
+      "std_ic": 0.2228407652883743,
+      "ic_ir": -0.02722903436722013,
+      "positive_days_pct": 50.438247011952186,
+      "feature": "rsi_14d_zscore"
+    },
+    {
+      "mean_ic": -0.007456807814075682,
+      "std_ic": 0.23364102820587404,
+      "ic_ir": -0.03191566082440585,
+      "positive_days_pct": 49.9601593625498,
+      "feature": "kalman_momentum_zscore"
+    },
+    {
+      "mean_ic": -0.00716101773210911,
+      "std_ic": 0.21951811721408337,
+      "ic_ir": -0.032621534020644084,
+      "positive_days_pct": 48.89068172650262,
+      "feature": "mom_acc_21d_zscore"
+    },
+    {
+      "mean_ic": -0.007698227761707677,
+      "std_ic": 0.2301282672196851,
+      "ic_ir": -0.03345189989638953,
+      "positive_days_pct": 49.41743672157493,
+      "feature": "mom_21d_zscore"
+    },
+    {
+      "mean_ic": -0.007415671016141593,
+      "std_ic": 0.21716426308722997,
+      "ic_ir": -0.03414775022052367,
+      "positive_days_pct": 48.48605577689243,
+      "feature": "rsi_7d_zscore"
+    },
+    {
+      "mean_ic": -0.007550625060038642,
+      "std_ic": 0.20138433797157132,
+      "ic_ir": -0.03749360616789958,
+      "positive_days_pct": 49.32270916334661,
+      "feature": "kalman_velocity_zscore"
+    },
+    {
+      "mean_ic": -0.008954418307272985,
+      "std_ic": 0.23160071810103944,
+      "ic_ir": -0.03866317158610952,
+      "positive_days_pct": 49.32,
+      "feature": "mom_10d_zscore"
+    },
+    {
+      "mean_ic": -0.00875572601956374,
+      "std_ic": 0.21633716987001075,
+      "ic_ir": -0.04047259202280164,
+      "positive_days_pct": 48.841059602649004,
+      "feature": "mom_acc_63d_zscore"
+    },
+    {
+      "mean_ic": -0.008684763057478818,
+      "std_ic": 0.19466680731111827,
+      "ic_ir": -0.044613476601264655,
+      "positive_days_pct": 48.20717131474104,
+      "feature": "macd_histogram_zscore"
+    }
+  ]
+}

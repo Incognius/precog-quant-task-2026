@@ -1,0 +1,40 @@
+{
+  "strategy": "VG Long-Only with Regime Scaling",
+  "config": {
+    "window_size": 10,
+    "use_hvg": true,
+    "signal_method": "composite",
+    "smooth_window": 3,
+    "regime_multipliers": {
+      "Bull": 1.0,
+      "Sideways-Low-Vol": 0.8,
+      "Sideways-High-Vol": 0.6,
+      "Bear": 0.0,
+      "Unknown": 0.5
+    }
+  },
+  "train_period": {
+    "sharpe": 2.9632730016832505,
+    "cagr": 0.5404230465959006,
+    "max_dd": -0.13733491933135886,
+    "turnover": 0
+  },
+  "val_period": {
+    "sharpe": 1.986793792512183,
+    "cagr": 0.3678099885818009,
+    "max_dd": -0.14349950597415176,
+    "turnover": 0
+  },
+  "test_period_baseline": {
+    "sharpe": 3.9135256167185797,
+    "cagr": 0.5716027533779133,
+    "max_dd": -0.0808337959203203,
+    "turnover": 0
+  },
+  "test_period_regime_scaled": {
+    "sharpe": 5.066316765819454,
+    "cagr": 0.5390857989548712,
+    "max_dd": -0.026455454837376963,
+    "turnover": 0
+  }
+}

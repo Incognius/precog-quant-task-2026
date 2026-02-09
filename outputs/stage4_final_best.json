@@ -1,0 +1,18 @@
+{
+  "strategy": "LGBM Long-Only Top 5%",
+  "signal": "pred_lgbm_zscore",
+  "rebalance_freq": 21,
+  "top_pct": 0.05,
+  "tc_bps": 10,
+  "metrics_oos": {
+    "total_return": 1.7696847429451097,
+    "ann_return": 0.6510441331888568,
+    "ann_vol": 0.3011821799075278,
+    "sharpe": 2.161628995356181,
+    "max_dd": -0.2387531729830461,
+    "win_rate": 0.552734375,
+    "n_days": 512
+  },
+  "target_sharpe": 2.0,
+  "target_achieved": true
+}

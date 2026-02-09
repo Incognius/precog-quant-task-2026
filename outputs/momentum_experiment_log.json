@@ -1,0 +1,15 @@
+{
+  "experiment": "Feature Family 1: Momentum Block",
+  "timestamp": "2026-01-23T23:02:07.766330",
+  "hypothesis": "Information diffusion across multiple horizons",
+  "features": [
+    "mom_3d",
+    "mom_5d",
+    "mom_10d"
+  ],
+  "results": {
+    "baseline_sharpe": 0.029165341675701537,
+    "momentum_sharpe": 0.03839023583920893,
+    "delta": 0.009224894163507396
+  }
+}

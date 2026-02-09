@@ -1,0 +1,16 @@
+{
+  "primary_target": "volnorm_return",
+  "horizon": 5,
+  "n_dates": 1998,
+  "n_assets": 100,
+  "best_single_feature": "kalman_trend",
+  "best_feature_ic": 0.0125,
+  "key_finding": "Momentum shows reversal signal (negative IC)",
+  "targets_saved": [
+    "raw_return",
+    "volnorm_return",
+    "rank_target",
+    "sign_binary",
+    "sign_ternary"
+  ]
+}

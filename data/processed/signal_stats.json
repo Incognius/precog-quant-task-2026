@@ -1,0 +1,9 @@
+{
+  "mean_turnover": 0.9156588451827508,
+  "annual_turnover": 230.7460289860532,
+  "mean_top10_concentration": 0.28277671917635394,
+  "signal_lag1_autocorr": 0.7301811566237455,
+  "mean_net_exposure": -3.2058718987055745e-16,
+  "mean_gross_exposure": 76.02467527532315,
+  "top20_overlap": 0.6369795342272406
+}

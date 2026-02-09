@@ -1,0 +1,31 @@
+{
+  "config": {
+    "regime_allocations": "{'low_vol': [('long_only', 1.0)], 'normal': [('long_only', 0.7), ('long_short', 0.3)], 'high_vol': [('long_short', 0.8), ('long_only', 0.2)]}",
+    "rebal_freq": 21,
+    "max_position": 0.1,
+    "smoothing_factor": 0.7,
+    "trailing_stop_pct": 0.03,
+    "reset_period": 5,
+    "vol_target": 0.2,
+    "transaction_cost_bps": 10,
+    "max_leverage": 2.0
+  },
+  "metrics": {
+    "sharpe": 1.5679441344979426,
+    "sortino": 2.022914895786163,
+    "calmar": 1.1445855819201507,
+    "total_return": 1.328477587295529,
+    "ann_return": 0.15513552041840517,
+    "ann_vol": 0.09894199481034427,
+    "max_drawdown": -0.1355385939408311,
+    "win_rate": 0.4083215796897038,
+    "profit_factor": 1.3759382917388334,
+    "avg_turnover": 7.443997523054211,
+    "n_trailing_stops": 21
+  },
+  "benchmark": {
+    "sharpe": 0.8884743039722139,
+    "total_return": 1.48090545421155,
+    "max_drawdown": -0.3341387682271968
+  }
+}

@@ -70,7 +70,25 @@ outputs/models/*.joblib
 
 # Logs
 *.log
+*.out
 logs/
+
+# LaTeX build files
+*.aux
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.log
+*.out
+
+# LaTeX source files (keep only PDFs)
+reports/*.tex
+
+# GitHub instructions (Claude/AI instructions)
+.github/instructions/
 
 # Temporary Files
 *.tmp
@@ -97,3 +115,25 @@ htmlcov/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+# Research Outputs (large files)
+research/outputs/models/*.pkl
+research/outputs/models/*.pt
+research/outputs/models/*.pth
+research/outputs/models/*.joblib
+research/outputs/*.parquet
+research/outputs/*.pkl
+
+# Parquet files (can be large)
+*.parquet
+
+# HDF5 files
+*.h5
+*.hdf5
+
+# CSV in raw data (original dataset)
+data/raw/assets/*.csv
+data/raw/daily_prices.csv
+
+# Large intermediate files
+outputs/*/ic_*.parquet
+outputs/FeatureFamilies/**/*.parquet

@@ -1,0 +1,63 @@
+{
+  "created_at": "2026-02-07T19:09:08.152837",
+  "input_file": "c:\\Users\\ponna\\OneDrive\\Desktop\\Precog Task\\data\\processed\\stage1_features.parquet",
+  "n_rows": 241700,
+  "targets": {
+    "raw": [
+      "fwd_ret_1d",
+      "fwd_ret_5d",
+      "fwd_ret_21d",
+      "target_raw"
+    ],
+    "smooth": [
+      "target_smooth",
+      "target_smooth_3d",
+      "target_smooth_5d",
+      "target_smooth_10d",
+      "target_multi_horizon"
+    ],
+    "ternary": [
+      "target_ternary",
+      "target_ternary_70_30",
+      "target_ternary_55_45"
+    ],
+    "probability": [
+      "target_prob_pct",
+      "target_prob_norm",
+      "target_prob_weighted"
+    ],
+    "risk_adjusted": [
+      "target_zscore",
+      "target_risk_adj",
+      "target_risk_adj_zscore"
+    ]
+  },
+  "turnover_analysis": [
+    {
+      "target": "target_raw",
+      "turnover": 0.01813374738814947
+    },
+    {
+      "target": "target_smooth",
+      "turnover": 0.004618735180969989
+    },
+    {
+      "target": "target_multi_horizon",
+      "turnover": 0.01509802733401314
+    },
+    {
+      "target": "target_ternary",
+      "turnover": 63.61150186181217
+    },
+    {
+      "target": "target_prob_pct",
+      "turnover": 0.3304975155279503
+    },
+    {
+      "target": "target_risk_adj_zscore",
+      "turnover": 0.779483445205471
+    }
+  ],
+  "recommended_target": "target_smooth",
+  "recommended_ternary": "target_ternary"
+}

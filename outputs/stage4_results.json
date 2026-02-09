@@ -1,0 +1,56 @@
+{
+  "models_trained": [
+    "ridge",
+    "lasso",
+    "elasticnet",
+    "mlp_small",
+    "mlp_large",
+    "rf",
+    "gbm",
+    "lgbm"
+  ],
+  "n_features": 38,
+  "model_ic_is": {
+    "ridge": 0.04461257518568261,
+    "lasso": 0.04392953897742944,
+    "elasticnet": 0.04490349252681924,
+    "mlp_small": 0.31732686104588276,
+    "mlp_large": 0.5130732188174709,
+    "rf": 0.23499488635012508,
+    "gbm": 0.18531380028562605,
+    "lgbm": 0.24530368046685497
+  },
+  "best_is_signal": "ensemble_weighted_zscore",
+  "strategy_results_oos": {
+    "Base MLP": {
+      "total_return": 0.5437886259530962,
+      "ann_return": 0.23828489693135513,
+      "ann_vol": 0.18848243148530108,
+      "sharpe": 1.2642286866058126,
+      "max_dd": -0.18166584456729895,
+      "win_rate": 0.564453125,
+      "n_days": 512
+    },
+    "Ensemble Top-3": {
+      "total_return": 0.616033302374611,
+      "ann_return": 0.26647504022271784,
+      "ann_vol": 0.18475449300743393,
+      "sharpe": 1.4423196737508504,
+      "max_dd": -0.18050617567237237,
+      "win_rate": 0.568359375,
+      "n_days": 512
+    },
+    "Vol-Targeted 25%": {
+      "total_return": 0.6867561477113326,
+      "ann_return": 0.2934579210160422,
+      "ann_vol": 0.24349871661096908,
+      "sharpe": 1.2051723515420996,
+      "max_dd": -0.21476751554428286,
+      "win_rate": 0.57421875,
+      "n_days": 512
+    }
+  },
+  "target_sharpe": 2.0,
+  "max_oos_sharpe": 1.4423196737508504,
+  "target_achieved": "False"
+}

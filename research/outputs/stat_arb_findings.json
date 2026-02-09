@@ -1,0 +1,62 @@
+{
+  "correlation_analysis": {
+    "mean_correlation": 0.36507792763345354,
+    "std_correlation": 0.12096980053346734,
+    "top_pairs": [
+      {
+        "pair": "Asset_010-Asset_016",
+        "correlation": 0.9005599704526666
+      },
+      {
+        "pair": "Asset_014-Asset_028",
+        "correlation": 0.8841671253636587
+      },
+      {
+        "pair": "Asset_067-Asset_068",
+        "correlation": 0.8679613148378408
+      },
+      {
+        "pair": "Asset_028-Asset_078",
+        "correlation": 0.8671362873160116
+      },
+      {
+        "pair": "Asset_014-Asset_078",
+        "correlation": 0.8512461316834076
+      },
+      {
+        "pair": "Asset_028-Asset_042",
+        "correlation": 0.8344850172189742
+      },
+      {
+        "pair": "Asset_028-Asset_068",
+        "correlation": 0.8329169598568552
+      },
+      {
+        "pair": "Asset_013-Asset_021",
+        "correlation": 0.8320667398242202
+      },
+      {
+        "pair": "Asset_043-Asset_074",
+        "correlation": 0.8312219986692797
+      },
+      {
+        "pair": "Asset_014-Asset_067",
+        "correlation": 0.820579082694261
+      }
+    ]
+  },
+  "cointegration_analysis": {
+    "n_cointegrated_pairs": 700,
+    "pct_cointegrated": 17500.0
+  },
+  "clustering": {
+    "n_clusters": 10,
+    "within_cluster_corr": 0.517500441449504,
+    "between_cluster_corr": 0.34472933007110923
+  },
+  "pairs_backtest": {
+    "best_pair": "Asset_045-Asset_091",
+    "best_sharpe": 0.9057258753861493,
+    "avg_sharpe": 0.601429179997606
+  }
+}

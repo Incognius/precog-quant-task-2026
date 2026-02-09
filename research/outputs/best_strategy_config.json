@@ -1,0 +1,29 @@
+{
+  "strategy": "60% Momentum + 40% Mean Reversion",
+  "momentum": {
+    "lookback": 126,
+    "skip": 42
+  },
+  "mean_reversion": {
+    "window": 21
+  },
+  "ensemble_weights": {
+    "momentum": 0.6,
+    "mean_reversion": 0.4
+  },
+  "execution": {
+    "rebalance_freq_days": 21,
+    "transaction_cost_bps": 10
+  },
+  "in_sample_metrics": {
+    "gross_sharpe": 0.5025912871048414,
+    "net_sharpe": 0.42324772185500825,
+    "gross_ann_return": 0.03895324134475863,
+    "net_ann_return": 0.032794257875129205,
+    "ann_turnover": 6.158983469629428,
+    "max_drawdown": -0.11261504468467906,
+    "calmar": 0.29120672079785415
+  },
+  "data_period": "2016-01-25 to 2023-12-29",
+  "holdout_period": "2024-01-01 to 2026-01-16 (UNTOUCHED)"
+}

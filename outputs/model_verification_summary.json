@@ -1,0 +1,18 @@
+{
+  "original_nb09": {
+    "is_sharpe": 2.49,
+    "oos_sharpe": 2.81
+  },
+  "saved_model_backtest": {
+    "is_sharpe": 2.14451675658218,
+    "oos_sharpe": 2.192636630904488
+  },
+  "replication_18_features": {
+    "is_sharpe": 2.0345982007593184,
+    "oos_sharpe": 2.057165950801666
+  },
+  "benchmark": {
+    "is_sharpe": 0.9821996274496441,
+    "oos_sharpe": 1.4699355443256694
+  }
+}

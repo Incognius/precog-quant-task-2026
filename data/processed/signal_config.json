@@ -1,0 +1,5 @@
+{
+  "scaling_method": "rank",
+  "zscore_window": 21,
+  "winsorize_pct": 0.05
+}

@@ -1,0 +1,2 @@
+nohup python3 backtest_alpha.py --models linear mlp lgbm  --ret-source label   --log-file backtest_alpha.log > /dev/null 2>&1 &
+nohup python3 generate_alpha.py --models linear mlp lgbm  --log-file alpha_pipeline.log > /dev/null 2>&1 &

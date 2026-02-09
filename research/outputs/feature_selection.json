@@ -1,0 +1,81 @@
+{
+  "total_features": 108,
+  "significant_features": 19,
+  "selected_features": 12,
+  "feature_names": [
+    "mom_12_1",
+    "ma_cross_50_200",
+    "tsmom",
+    "reversal_1d",
+    "vol_of_vol_21d",
+    "channel_width_55d",
+    "vol_42d",
+    "gk_vol_5d",
+    "gk_vol_21d",
+    "vol_10d",
+    "bb_width_40d",
+    "vol_5d"
+  ],
+  "ic_stats": {
+    "mom_12_1": {
+      "mean_ic": 0.01846235768829008,
+      "ic_ir": 0.06749428736154348,
+      "category": "momentum"
+    },
+    "ma_cross_50_200": {
+      "mean_ic": 0.018473222429898684,
+      "ic_ir": 0.06659637267324225,
+      "category": "technical"
+    },
+    "tsmom": {
+      "mean_ic": 0.015320845075255394,
+      "ic_ir": 0.06287502810615359,
+      "category": "momentum"
+    },
+    "reversal_1d": {
+      "mean_ic": 0.012533548373146788,
+      "ic_ir": 0.056866681936211465,
+      "category": "mean_reversion"
+    },
+    "vol_of_vol_21d": {
+      "mean_ic": 0.011174053719248712,
+      "ic_ir": 0.05383524049338283,
+      "category": "volatility"
+    },
+    "channel_width_55d": {
+      "mean_ic": 0.013827631787640175,
+      "ic_ir": 0.05103231297336764,
+      "category": "technical"
+    },
+    "vol_42d": {
+      "mean_ic": 0.014765637187581927,
+      "ic_ir": 0.049987845584965065,
+      "category": "volatility"
+    },
+    "gk_vol_5d": {
+      "mean_ic": 0.01316092568182695,
+      "ic_ir": 0.048513219866257465,
+      "category": "volatility"
+    },
+    "gk_vol_21d": {
+      "mean_ic": 0.013835976459231873,
+      "ic_ir": 0.04790665403506451,
+      "category": "volatility"
+    },
+    "vol_10d": {
+      "mean_ic": 0.01242181841007423,
+      "ic_ir": 0.04789893735013496,
+      "category": "volatility"
+    },
+    "bb_width_40d": {
+      "mean_ic": 0.01138632654496001,
+      "ic_ir": 0.046828116840435134,
+      "category": "mean_reversion"
+    },
+    "vol_5d": {
+      "mean_ic": 0.010698082601626352,
+      "ic_ir": 0.04547797135612763,
+      "category": "volatility"
+    }
+  }
+}

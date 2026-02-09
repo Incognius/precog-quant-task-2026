@@ -1,0 +1,201 @@
+{
+  "metadata": {
+    "notebook": "NB5_strategy_backtest",
+    "date_generated": "2026-02-04T15:53:45.319709",
+    "data_period": {
+      "start": "2018-05-07 00:00:00",
+      "end": "2023-12-21 00:00:00",
+      "trading_days": 1418
+    },
+    "universe_size": 100
+  },
+  "backtest_config": {
+    "vol_target": 0.16,
+    "initial_capital": 1000000,
+    "transaction_cost_bps": 10,
+    "max_leverage": 2.0,
+    "vol_warmup_days": 63
+  },
+  "strategy_comparison": {
+    "Long_Only_Weekly": {
+      "sharpe": 0.9483,
+      "ann_return": 0.1654,
+      "ann_vol": 0.1744,
+      "max_dd": -0.2888,
+      "calmar": 0.5728,
+      "turnover": 12.3808
+    },
+    "EW_BuyHold": {
+      "sharpe": 0.862,
+      "ann_return": 0.1486,
+      "ann_vol": 0.1724,
+      "max_dd": -0.2486,
+      "calmar": 0.5975,
+      "turnover": 0.1777
+    },
+    "Long_Only_Top20": {
+      "sharpe": 0.836,
+      "ann_return": 0.146,
+      "ann_vol": 0.1746,
+      "max_dd": -0.3145,
+      "calmar": 0.464,
+      "turnover": 17.89
+    },
+    "Long_Bias_120_20": {
+      "sharpe": 0.7118,
+      "ann_return": 0.125,
+      "ann_vol": 0.1757,
+      "max_dd": -0.3176,
+      "calmar": 0.3937,
+      "turnover": 21.3697
+    },
+    "Long_Only_Top10": {
+      "sharpe": 0.6833,
+      "ann_return": 0.1206,
+      "ann_vol": 0.1766,
+      "max_dd": -0.313,
+      "calmar": 0.3854,
+      "turnover": 23.006
+    },
+    "Long_Bias_130_30": {
+      "sharpe": 0.6799,
+      "ann_return": 0.1196,
+      "ann_vol": 0.1759,
+      "max_dd": -0.3236,
+      "calmar": 0.3696,
+      "turnover": 24.7539
+    },
+    "LS_Monthly": {
+      "sharpe": 0.5345,
+      "ann_return": 0.0675,
+      "ann_vol": 0.1263,
+      "max_dd": -0.2612,
+      "calmar": 0.2583,
+      "turnover": 7.2724
+    },
+    "LS_Top20_Bot20": {
+      "sharpe": 0.3578,
+      "ann_return": 0.0463,
+      "ann_vol": 0.1295,
+      "max_dd": -0.2026,
+      "calmar": 0.2287,
+      "turnover": 17.7774
+    },
+    "Spread_Q1_Q5": {
+      "sharpe": 0.3578,
+      "ann_return": 0.0463,
+      "ann_vol": 0.1295,
+      "max_dd": -0.2026,
+      "calmar": 0.2287,
+      "turnover": 17.7774
+    },
+    "LS_Weekly": {
+      "sharpe": 0.3341,
+      "ann_return": 0.0429,
+      "ann_vol": 0.1286,
+      "max_dd": -0.2916,
+      "calmar": 0.1473,
+      "turnover": 12.2283
+    },
+    "Signal_Weighted_Weekly": {
+      "sharpe": 0.2412,
+      "ann_return": 0.0301,
+      "ann_vol": 0.1249,
+      "max_dd": -0.2491,
+      "calmar": 0.121,
+      "turnover": 10.9756
+    },
+    "LS_Biweekly": {
+      "sharpe": 0.2386,
+      "ann_return": 0.0304,
+      "ann_vol": 0.1275,
+      "max_dd": -0.2898,
+      "calmar": 0.105,
+      "turnover": 9.9563
+    },
+    "Signal_Weighted": {
+      "sharpe": 0.221,
+      "ann_return": 0.0281,
+      "ann_vol": 0.1269,
+      "max_dd": -0.2279,
+      "calmar": 0.1231,
+      "turnover": 14.7872
+    },
+    "LS_Top30_Bot30": {
+      "sharpe": 0.163,
+      "ann_return": 0.0182,
+      "ann_vol": 0.1116,
+      "max_dd": -0.2454,
+      "calmar": 0.0741,
+      "turnover": 14.5455
+    },
+    "LS_Top10_Bot10": {
+      "sharpe": -0.0885,
+      "ann_return": -0.0137,
+      "ann_vol": 0.1548,
+      "max_dd": -0.3994,
+      "calmar": -0.0343,
+      "turnover": 22.2192
+    }
+  },
+  "best_strategy": {
+    "name": "Long_Only_Weekly",
+    "overall_sharpe": 0.9483,
+    "ann_return": 0.1654,
+    "max_dd": -0.2888,
+    "is_sharpe": 0.8372176359826375,
+    "oos_sharpe": 1.1247323128583193,
+    "regime_sharpe": {
+      "low_vol": 2.3483712498375082,
+      "normal": 0.6641376753188252,
+      "high_vol": 0.07610480256394186
+    },
+    "rolling_stability": {
+      "mean_sharpe": 0.9853709082675707,
+      "pct_positive": 93.65895458440446
+    }
+  },
+  "benchmark": {
+    "name": "EW_BuyHold",
+    "sharpe": 0.862,
+    "ann_return": 0.1486,
+    "max_dd": -0.2486
+  },
+  "is_oos_analysis": {
+    "split_date": "2021-09-21 00:00:00",
+    "strategies": {
+      "Long_Only_Weekly": {
+        "is_sharpe": 0.8372176359826375,
+        "oos_sharpe": 1.1247323128583193
+      },
+      "EW_BuyHold": {
+        "is_sharpe": 0.916534518558359,
+        "oos_sharpe": 0.7757480430192156
+      },
+      "Long_Only_Top20": {
+        "is_sharpe": 0.6732994998992218,
+        "oos_sharpe": 1.0926070090713595
+      },
+      "LS_Monthly": {
+        "is_sharpe": 0.5158548455170373,
+        "oos_sharpe": 0.561188318340158
+      },
+      "LS_Top20_Bot20": {
+        "is_sharpe": -0.25390025206722844,
+        "oos_sharpe": 1.1460242305605413
+      }
+    }
+  },
+  "sltp_analysis": {
+    "best_config": "SL_10pct",
+    "best_sharpe": 0.39,
+    "best_max_dd": -0.185
+  },
+  "recommendations": {
+    "primary_strategy": "Long_Only_Weekly",
+    "regime_overlay": "LS_Monthly in high_vol",
+    "stop_loss": "10%",
+    "rebalance_freq": "Weekly",
+    "position_limit": "Top 20%"
+  }
+}

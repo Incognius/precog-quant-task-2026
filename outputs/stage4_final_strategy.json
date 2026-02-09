@@ -1,0 +1,27 @@
+{
+  "recommended_strategy": "LGBM Top 10% + SL 5%",
+  "model": "LightGBM",
+  "portfolio": "Top 10% Long-Only",
+  "risk_management": "Stop-Loss 5%",
+  "rebalance_freq": 21,
+  "tc_bps": 10,
+  "is_metrics": {
+    "sharpe": 3.010831844067619,
+    "annual_return": 0.751703224923848,
+    "max_drawdown": -0.36968575751107546,
+    "volatility": 0.24966629275689387
+  },
+  "oos_metrics": {
+    "sharpe": 1.1384884232187442,
+    "annual_return": 0.26974457386550177,
+    "max_drawdown": -0.26646374801775397,
+    "volatility": 0.23693220611679894
+  },
+  "benchmark_oos_sharpe": 1.4077250651564508,
+  "targets": {
+    "is_sharpe_target": 1.5,
+    "oos_sharpe_target": 2.0,
+    "is_sharpe_achieved": "True",
+    "oos_sharpe_achieved": "False"
+  }
+}
