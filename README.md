@@ -2,7 +2,6 @@
 
 **Author:** Ponnambalam V
 **Task:** Quantitative Trading Strategy Development  
-**Institution:** Precog Research Group, IIIT Hyderabad
 
 ---
 
